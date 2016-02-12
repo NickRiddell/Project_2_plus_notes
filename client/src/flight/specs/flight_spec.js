@@ -9,8 +9,8 @@ describe('flight', function() {
     assert.equal(flight.arrival, "Melbourne");
   });
   it('should have departing date and arriving date', function() {
-    var flight = new Flight("Edinburgh", "Melbourne", new Date("28-03-2016 T08:00:00"), new Date("29-03-2016 T10:00:00"));
-    assert.equal(flight.departing, new Date("28-03-2016 T08:00:00"));
-    assert.equal(flight.arriving, new Date("29-03-2016 T10:00:00"));
+    var flight = new Flight("Edinburgh", "Melbourne", "28-03-2016 T08:00:00", "29-03-2016 T10:00:00");
+    assert.equal(flight.departing, "Mon Mar 28 2016 09:00:00 GMT+0100 (BST)");
+    assert.equal(flight.arriving, "Tue Mar 29 2016 11:00:00 GMT+0100 (BST)");
   });
 })
