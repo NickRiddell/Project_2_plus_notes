@@ -25,7 +25,7 @@ describe('accommodation', function(){
   it('should have a star rating ', function(){
     var accom = new Accommodation();
     accom.stars = 3;
-    assert.isNumber(0, accom.star);
+    assert.isNumber(accom.stars);
   });
 
   it('should have an address ', function(){
