@@ -45,6 +45,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var AccomView = __webpack_require__(1);
+	var Flight = __webpack_require__(2);
+	
+	var flights = [];
 	
 	var displayDepartureDropdown = function(flights) {
 	  console.log(flights);
@@ -89,8 +92,21 @@
 	      console.log("Got the DATA");
 	      appData = JSON.parse(request.responseText); 
 	      console.log(appData);
-	      displayDepartureDropdown(appData.flights);
-	      displayArrivalDropdown(appData.flights);
+	
+	      for (var i = 0; i < appData.flights.length; i++) {
+	        var flightData = appData.flights[i];
+	        var flight = new Flight(
+	          flightData.departure,
+	          flightData.arrival,
+	          flightData.departing,
+	          flightData.arriving,
+	          flightData.price
+	        );
+	        flights.push(flight);
+	      }
+	
+	      displayDepartureDropdown(flights);
+	      displayArrivalDropdown(flights);
 	    }
 	  }
 	  request.send(null)
@@ -133,6 +149,33 @@
 	};
 	
 	module.exports = AccomView;
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	var Flight = function(departure, arrival, departing, arriving, price){
+	  this.departure = departure;
+	  this.arrival = arrival;
+	  this.departing = new Date(this.convertDate(departing));
+	  this.arriving = new Date(this.convertDate(arriving));
+	  this.price = price;
+	}
+	
+	Flight.prototype = {
+	  convertDate: function(date){
+	    if(!date)return;
+	    var newDate = "";
+	
+	    newDate += date.substring(6, 10) + "-";
+	    newDate += date.substring(3, 5) + "-";
+	    newDate += date.substring(0, 2);
+	    newDate += date.substring(11, 20);
+	    return(newDate);
+	  }
+	}
+	
+	module.exports = Flight;
 
 /***/ }
 /******/ ]);

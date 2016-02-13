@@ -34,4 +34,4 @@ describe('accommodation', function(){
     assert.isObject(accom.address);
   });
 
-  });
+});
