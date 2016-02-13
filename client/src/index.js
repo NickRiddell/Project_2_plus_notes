@@ -1,72 +1,64 @@
-var departureDisplayDropdown = function(nameList) {
-  for (var i = 0; i < nameList.length; i++) {
-    var option = document.createElement("option");
-    option.innerText = nameList[i];
-    var select = document.querySelector("select#departure");
-    select.appendChild(option);
+var AccomView = require('./accomView.js');
+
+var displayDepartureDropdown = function(flights) {
+  console.log(flights);
+  names = [];
+  var select = document.querySelector("#departure-select");
+  for (var i = 0; i < flights.length; i++) {
+    var flight = flights[i];
+    if(!names.includes(flight.departure)){
+      var option = document.createElement("option");
+      option.innerText = flight.departure;
+      select.appendChild(option);
+      names.push(flight.departure);
+    }
   }
 }
 
-var arrivalDisplayDropdown = function(nameList) {
-  for (var i = 0; i < nameList.length; i++) {
-    var option = document.createElement("option");
-    option.innerText = nameList[i];
-    console.log(option.innerText);
-    var select = document.querySelector("select#arrival");
-    console.log(select);
-    select.appendChild(option);
+var displayArrivalDropdown = function(flights) {
+  names = [];
+  var select = document.querySelector("#arrival-select");
+  for (var i = 0; i < flights.length; i++) {
+    var flight = flights[i];
+    if(!names.includes(flight.arrival)){
+      var option = document.createElement("option");
+      option.innerText = flight.arrival;
+      select.appendChild(option);
+      names.push(flight.arrival);
+    }
   }
 }
-
 
 window.onload = function(){
+var departure_dropdown = document.getElementById('departure-select');
+var arrival_dropdown = document.getElementById('arrival-select');
+
   console.log('loaded');
   var url = 'https://raw.githubusercontent.com/MichaelMacLeod/project_2/develop/flight_data.json';
   var request = new XMLHttpRequest();
-  var cityNameList = ["Edinburgh"];
-  var arrivalCityNameList = ["Melbourne", "Canberra", "Sydney"];
-  var departure_dropdown = document.getElementById('departure');
-  var arrival_dropdown = document.getElementById('arrival');
   request.open('GET', url);
 
-
-  request.onload = function() { 
+  request.onload = function() {
     if (request.status === 200) { 
       console.log("Got the DATA");
       appData = JSON.parse(request.responseText); 
       console.log(appData);
-      console.log(request.responseText)
+      displayDepartureDropdown(appData.flights);
+      displayArrivalDropdown(appData.flights);
     }
   }
   request.send(null)
 
-  departureDisplayDropdown(cityNameList);
-  arrivalDisplayDropdown(arrivalCityNameList);
-
-  departure_dropdown.onchange = function() {
-    var cityName = this.value;
-    var cityIndex = null;
-
-    for (index in cityNameList) {
-      var testCityName = cityNameList[index];
-      if (testCityName === cityName) {
-        var cityIndex = index;
-        console.log(cityName);
+  arrival_dropdown.onchange = function(event) {
+    var div = document.querySelector('#accomList');
+    div.innerHTML = "";
+    var city = this.value;
+    for (var i = 0; i < appData.hotels.length; i++) {
+      var hotel = appData.hotels[i];
+      if (hotel.address.city == city) {
+        var view = new AccomView(hotel);
+        view.render(div);
       }
     }
   }
-
-  arrival_dropdown.onchange = function() {
-    var cityName = this.value;
-    var cityIndex = null;
-
-    for (index in cityNameList) {
-      var testCityName = cityNameList[index];
-      if (testCityName === cityName) {
-        var cityIndex = index;
-        console.log(cityName);
-      }
-    }
-  }
-
 }
