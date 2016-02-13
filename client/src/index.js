@@ -1,5 +1,7 @@
 var AccomView = require('./accomView.js');
 var Flight = require('./flight/flight.js');
+var FlightView = require('./flight/flightView.js');
+
 
 var flights = [];
 
@@ -32,12 +34,39 @@ var displayArrivalDropdown = function(flights) {
   }
 }
 
+var displayFlights = function() {
+  var div = document.querySelector('#flightList');
+  div.innerHTML = "";
+  var filteredArray = flights.filter(function(flight) {
+    var arrivalSelect = document.querySelector("#arrival-select");
+    var departureSelect = document.querySelector("#departure-select");
+    var dateSelect = document.querySelector("#date-input")
+    console.log(dateSelect.value);
+    if (flight.departure == departureSelect.value && flight.arrival == arrivalSelect.value && flight.departing.toDateString() === new Date(dateSelect.value).toDateString() ) {
+      return true
+    }else{
+      return false
+    }
+  });
+  for (var i = 0; i < filteredArray.length; i++) {
+    var flight = filteredArray[i];
+    var flightView = new FlightView(flight);
+    flightView.render(div);
+  }
+}
+
 window.onload = function(){
 var departure_dropdown = document.getElementById('departure-select');
 var arrival_dropdown = document.getElementById('arrival-select');
 
+  var button = document.querySelector('#go')
+  button.type = 'button';
+  button.onclick = displayFlights;
+
+
+
   console.log('loaded');
-  var url = 'https://raw.githubusercontent.com/MichaelMacLeod/project_2/develop/flight_data.json';
+  var url = 'https://raw.githubusercontent.com/MichaelMacLeod/project_2/master/flight_data.json';
   var request = new XMLHttpRequest();
   request.open('GET', url);
 
@@ -65,16 +94,16 @@ var arrival_dropdown = document.getElementById('arrival-select');
   }
   request.send(null)
 
-  arrival_dropdown.onchange = function(event) {
-    var div = document.querySelector('#accomList');
-    div.innerHTML = "";
-    var city = this.value;
-    for (var i = 0; i < appData.hotels.length; i++) {
-      var hotel = appData.hotels[i];
-      if (hotel.address.city == city) {
-        var view = new AccomView(hotel);
-        view.render(div);
-      }
-    }
-  }
+  // arrival_dropdown.onchange = function(event) {
+  //   var div = document.querySelector('#accomList');
+  //   div.innerHTML = "";
+  //   var city = this.value;
+  //   for (var i = 0; i < appData.hotels.length; i++) {
+  //     var hotel = appData.hotels[i];
+  //     if (hotel.address.city == city) {
+  //       var view = new AccomView(hotel);
+  //       view.render(div);
+  //     }
+  //   }
+  // }
 }

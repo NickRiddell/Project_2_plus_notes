@@ -46,6 +46,8 @@
 
 	var AccomView = __webpack_require__(1);
 	var Flight = __webpack_require__(2);
+	var FlightView = __webpack_require__(3);
+	
 	
 	var flights = [];
 	
@@ -78,12 +80,39 @@
 	  }
 	}
 	
+	var displayFlights = function() {
+	  var div = document.querySelector('#flightList');
+	  div.innerHTML = "";
+	  var filteredArray = flights.filter(function(flight) {
+	    var arrivalSelect = document.querySelector("#arrival-select");
+	    var departureSelect = document.querySelector("#departure-select");
+	    var dateSelect = document.querySelector("#date-input")
+	    console.log(dateSelect.value);
+	    if (flight.departure == departureSelect.value && flight.arrival == arrivalSelect.value && flight.departing.toDateString() === new Date(dateSelect.value).toDateString() ) {
+	      return true
+	    }else{
+	      return false
+	    }
+	  });
+	  for (var i = 0; i < filteredArray.length; i++) {
+	    var flight = filteredArray[i];
+	    var flightView = new FlightView(flight);
+	    flightView.render(div);
+	  }
+	}
+	
 	window.onload = function(){
 	var departure_dropdown = document.getElementById('departure-select');
 	var arrival_dropdown = document.getElementById('arrival-select');
 	
+	  var button = document.querySelector('#go')
+	  button.type = 'button';
+	  button.onclick = displayFlights;
+	
+	
+	
 	  console.log('loaded');
-	  var url = 'https://raw.githubusercontent.com/MichaelMacLeod/project_2/develop/flight_data.json';
+	  var url = 'https://raw.githubusercontent.com/MichaelMacLeod/project_2/master/flight_data.json';
 	  var request = new XMLHttpRequest();
 	  request.open('GET', url);
 	
@@ -111,18 +140,18 @@
 	  }
 	  request.send(null)
 	
-	  arrival_dropdown.onchange = function(event) {
-	    var div = document.querySelector('#accomList');
-	    div.innerHTML = "";
-	    var city = this.value;
-	    for (var i = 0; i < appData.hotels.length; i++) {
-	      var hotel = appData.hotels[i];
-	      if (hotel.address.city == city) {
-	        var view = new AccomView(hotel);
-	        view.render(div);
-	      }
-	    }
-	  }
+	  // arrival_dropdown.onchange = function(event) {
+	  //   var div = document.querySelector('#accomList');
+	  //   div.innerHTML = "";
+	  //   var city = this.value;
+	  //   for (var i = 0; i < appData.hotels.length; i++) {
+	  //     var hotel = appData.hotels[i];
+	  //     if (hotel.address.city == city) {
+	  //       var view = new AccomView(hotel);
+	  //       view.render(div);
+	  //     }
+	  //   }
+	  // }
 	}
 
 /***/ },
@@ -176,6 +205,31 @@
 	}
 	
 	module.exports = Flight;
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	var FlightView = function(flight){
+	  this.title = document.createElement('h2');
+	  this.title.innerText = flight.departure + "-" + flight.arrival;
+	
+	  this.times = document.createElement('p');
+	  this.times.innerText = flight.departing + "-" + flight.arriving;
+	
+	  this.price = document.createElement('p');
+	  this.price.innerText = flight.price;
+	};
+	
+	FlightView.prototype = {
+	  render: function(parent) {
+	  parent.appendChild(this.title);
+	  parent.appendChild(this.times);
+	  parent.appendChild(this.price);
+	  }
+	};
+	
+	module.exports = FlightView;
 
 /***/ }
 /******/ ]);
