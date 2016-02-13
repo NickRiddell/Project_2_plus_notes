@@ -18,13 +18,27 @@ var arrivalDisplayDropdown = function(nameList) {
   }
 }
 
+
 window.onload = function(){
   console.log('loaded');
-  var url = '';
+  var url = 'https://raw.githubusercontent.com/MichaelMacLeod/project_2/develop/flight_data.json';
+  var request = new XMLHttpRequest();
   var cityNameList = ["Edinburgh"];
   var arrivalCityNameList = ["Melbourne", "Canberra", "Sydney"];
   var departure_dropdown = document.getElementById('departure');
   var arrival_dropdown = document.getElementById('arrival');
+  request.open('GET', url);
+
+
+  request.onload = function() { 
+    if (request.status === 200) { 
+      console.log("Got the DATA");
+      appData = JSON.parse(request.responseText); 
+      console.log(appData);
+      console.log(request.responseText)
+    }
+  }
+  request.send(null)
 
   departureDisplayDropdown(cityNameList);
   arrivalDisplayDropdown(arrivalCityNameList);
@@ -54,4 +68,5 @@ window.onload = function(){
       }
     }
   }
+
 }
