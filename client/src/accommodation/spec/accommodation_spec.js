@@ -34,6 +34,7 @@ describe('accommodation', function(){
     assert.isObject(accom.address);
   });
 
+
   it('should reduce number of available rooms by the chosen number', function() {
     var accom = new Accommodation();
     accom.rooms = 20;
@@ -49,12 +50,4 @@ describe('accommodation', function(){
   });
 
   });
-
-
-
-
-
-
-
-
 
