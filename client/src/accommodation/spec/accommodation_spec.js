@@ -34,4 +34,27 @@ describe('accommodation', function(){
     assert.isObject(accom.address);
   });
 
+  it('should reduce number of available rooms by the chosen number', function() {
+    var accom = new Accommodation();
+    accom.rooms = 20;
+    accom.bookRoom(6);
+    assert.equal(accom.rooms, 14)
   });
+
+  it('should refuse to reduce number of available rooms below 0 during booking', function() {
+    var accom = new Accommodation();
+    accom.rooms = 20;
+    accom.bookRoom(21);
+    assert.equal(accom.rooms, 20)
+  });
+
+  });
+
+
+
+
+
+
+
+
+
