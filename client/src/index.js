@@ -29,12 +29,26 @@ var displayArrivalDropdown = function(flights) {
   }
 }
 
+var displayHotelsDropdown = function(hotels) { 
+  names = [];
+  var select = document.querySelector("#hotels-select");
+  for (var i = 0; i < hotels.length; i++) {
+    var hotel = hotels[i];
+    if(!names.includes(hotel.name)){
+      var option = document.createElement("option");
+      option.innerText = hotel.name;
+      select.appendChild(option);
+      names.push(hotel.name);
+    }
+  }
+}
+
 window.onload = function(){
 var departure_dropdown = document.getElementById('departure-select');
 var arrival_dropdown = document.getElementById('arrival-select');
 
   console.log('loaded');
-  var url = 'https://raw.githubusercontent.com/MichaelMacLeod/project_2/develop/flight_data.json';
+  var url = 'https://raw.githubusercontent.com/MichaelMacLeod/project_2/master/flight_data.json';
   var request = new XMLHttpRequest();
   request.open('GET', url);
 

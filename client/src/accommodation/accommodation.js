@@ -6,4 +6,13 @@ var Accommodation = function() {
   this.address = {};
 }
 
+Accommodation.prototype = {
+  bookRoom: function(rooms) {
+    if(rooms <= this.rooms) {
+      this.rooms -= rooms
+    }
+    else(console.log("Not enough rooms"))
+  }
+}
+ 
 module.exports = Accommodation;

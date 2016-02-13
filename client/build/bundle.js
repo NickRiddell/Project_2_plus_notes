@@ -75,12 +75,26 @@
 	  }
 	}
 	
+	var displayHotelsDropdown = function(hotels) { 
+	  names = [];
+	  var select = document.querySelector("#hotels-select");
+	  for (var i = 0; i < hotels.length; i++) {
+	    var hotel = hotels[i];
+	    if(!names.includes(hotel.name)){
+	      var option = document.createElement("option");
+	      option.innerText = hotel.name;
+	      select.appendChild(option);
+	      names.push(hotel.name);
+	    }
+	  }
+	}
+	
 	window.onload = function(){
 	var departure_dropdown = document.getElementById('departure-select');
 	var arrival_dropdown = document.getElementById('arrival-select');
 	
 	  console.log('loaded');
-	  var url = 'https://raw.githubusercontent.com/MichaelMacLeod/project_2/develop/flight_data.json';
+	  var url = 'https://raw.githubusercontent.com/MichaelMacLeod/project_2/master/flight_data.json';
 	  var request = new XMLHttpRequest();
 	  request.open('GET', url);
 	
@@ -118,10 +132,14 @@
 	  this.name.innerText = hotel.name;
 	
 	  this.pricePerPerson = document.createElement('p');
-	  this.pricePerPerson.innerText = hotel.pricePerPerson;
+	  this.pricePerPerson.innerText = "£" +hotel.pricePerPerson;
 	
 	  this.stars = document.createElement('p');
-	  this.stars.innerText = hotel.stars;
+	  this.stars.innerText = "Stars: " +hotel.stars;
+	
+	  this.rooms = document.createElement('p');
+	  this.rooms.innerText = "Rooms available: " + hotel.rooms;
+	
 	};
 	
 	AccomView.prototype = {
@@ -129,6 +147,8 @@
 	  parent.appendChild(this.name);
 	  parent.appendChild(this.pricePerPerson);
 	  parent.appendChild(this.stars);
+	  parent.appendChild(this.rooms);
+	
 	  }
 	};
 	
