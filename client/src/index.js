@@ -1,4 +1,7 @@
 var AccomView = require('./accomView.js');
+var Flight = require('./flight/flight.js');
+
+var flights = [];
 
 var displayDepartureDropdown = function(flights) {
   console.log(flights);
@@ -43,8 +46,21 @@ var arrival_dropdown = document.getElementById('arrival-select');
       console.log("Got the DATA");
       appData = JSON.parse(request.responseText); 
       console.log(appData);
-      displayDepartureDropdown(appData.flights);
-      displayArrivalDropdown(appData.flights);
+
+      for (var i = 0; i < appData.flights.length; i++) {
+        var flightData = appData.flights[i];
+        var flight = new Flight(
+          flightData.departure,
+          flightData.arrival,
+          flightData.departing,
+          flightData.arriving,
+          flightData.price
+        );
+        flights.push(flight);
+      }
+
+      displayDepartureDropdown(flights);
+      displayArrivalDropdown(flights);
     }
   }
   request.send(null)
