@@ -7,7 +7,7 @@ app.get('/', function (req, res) {
 });
 
 app.use(express.static('client/build'));
-app.use(express.static('/public'));
+app.use(express.static('public'));
 
 
 var server = app.listen(3000, function () {

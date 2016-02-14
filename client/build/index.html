@@ -3,23 +3,37 @@
   <head>
     <title>Comparison App</title>
     <script src='bundle.js'></script>
+    <!-- Loading Bootstrap -->
+    <link href="flat-ui/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Loading Flat UI -->
+    <link href="flat-ui/css/flat-ui.css" rel="stylesheet">
+    <link href="flat-ui/css/docs.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
   </head>
   <body>
 
-  <h3>Choose departure airport:</h3>
-  <select style="width: 280px" id="departure-select" name="departure-select">
-    <option selected="">Please Select</option>
-  </select>
-  <select style="width: 280px" id="arrival-select" name="arrival-select">
-    <option selected="">Please Select</option>
-  </select>
-  <input id='date-input' type="date" data-date-inline-picker="true" />
-  <button id='go'>Go</button>
+  <h1 class="demo-headline">FLIGHTR.</h1>
+    <div class="jumbotron">
+      <div class="container">
+        <h3>Choose departure airport:</h3>
+        <select style="width: 280px" id="departure-select" name="departure-select" class="form-control select select-primary select-block mbl">
+          <option selected="">Please Select</option>
+        </select>
+        <select style="width: 280px" id="arrival-select" name="arrival-select" class="form-control select select-primary select-block mbl">
+          <option selected="">Please Select</option>
+        </select>
+        <input id='date-input' type="date" data-date-inline-picker="true" class="form-control mbl datepicker-inline">
+        <button id='go' class="btn btn-hg btn-primary">Go</button>
+      </div>
+    </div>
 
-  <div id='flightList'>
-  </div>
+  <div class="container">
+    <div id='flightList'>
+    </div>
 
-  <div id='accomList'>
+    <div id='accomList'>
+    </div>
+
   </div>
 
   </body>
