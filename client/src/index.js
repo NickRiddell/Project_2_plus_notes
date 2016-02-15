@@ -42,7 +42,7 @@ var displayFlights = function(callback) {
     var departureSelect = document.querySelector("#departure-select");
     var dateSelect = document.querySelector("#date-input")
     console.log(dateSelect.value);
-    if (flight.departure == departureSelect.value && flight.arrival == arrivalSelect.value && flight.departing.toDateString() === new Date(dateSelect.value).toDateString() ) {
+    if (flight.departure == departureSelect.value && flight.arrival == arrivalSelect.value && new Date(flight.departing).toDateString() === new Date(dateSelect.value).toDateString() ) {
       return true
     }else{
       return false
@@ -81,6 +81,8 @@ var arrival_dropdown = document.getElementById('arrival-select');
       for (var i = 0; i < appData.flights.length; i++) {
         var flightData = appData.flights[i];
         var flight = new Flight(
+          flightData.departureTZ,
+          flightData.arrivalTZ,
           flightData.departure,
           flightData.arrival,
           flightData.departing,

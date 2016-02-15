@@ -4,7 +4,15 @@ var config = {
     filename: "bundle.js",
     path: "./build"
   },
-  devtool: "source-map"
+  devtool: "source-map",
+  module: {
+    loaders: [
+      {include: /\.json$/, loaders: ["json-loader"]}
+    ]
+  },
+  resolve: {
+    extensions: ['', '.json', '.jsx', '.js']
+  }
 }
 
 module.exports = config;
