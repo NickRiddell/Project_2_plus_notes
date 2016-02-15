@@ -1,5 +1,4 @@
 var Accommodation = require('../accommodation');
-var assert = require('assert');
 var chai = require('chai');
 var assert = chai.assert;
 
@@ -49,5 +48,10 @@ describe('accommodation', function(){
     assert.equal(accom.rooms, 20)
   });
 
-  });
+  it('should check avaialbility of rooms in hotels against the value inputed by the user', function() { 
+    var hotel = new Accommodation("Crowne Plaza", 32, 10, 3, [-37.822848, 144.955277], {"building":"3","street":"Park Avenue","city":"Melbourne","zip":3498890});
+    assert.equal(hotel.isAvailable(9), true);
+    assert.equal(hotel.isAvailable(11), false);
+  })
+});
 
