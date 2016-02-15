@@ -7,6 +7,9 @@ var FlightView = function(flight){
 
   this.price = document.createElement('p');
   this.price.innerText = "£" + flight.price;
+
+  this.button = document.createElement('button');
+  this.button.innerText = "Choose Flight";
 };
 
 FlightView.prototype = {
@@ -14,6 +17,7 @@ FlightView.prototype = {
   parent.appendChild(this.title);
   parent.appendChild(this.times);
   parent.appendChild(this.price);
+  parent.appendChild(this.button);
   }
 };
 

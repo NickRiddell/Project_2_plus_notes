@@ -5,6 +5,14 @@ var FlightView = require('./flight/flightView.js');
 
 
 var flights = [];
+var hotels = [];
+
+var selectedValues = {
+  roomsWanted: 0,
+  nights: 0,
+  arrival: 0
+}
+
 
 var displayDepartureDropdown = function(flights) {
   names = [];
@@ -61,7 +69,7 @@ var displayRoomsDropdown = function() {
   };
 }
 
-var displayFlights = function(callback) {
+var displayFlights = function(displayHotels) {
   console.log("button clicked");
   var div = document.querySelector('#flightList');
   div.innerHTML = "";
@@ -80,9 +88,10 @@ var displayFlights = function(callback) {
     var flight = filteredArray[i];
     var flightView = new FlightView(flight);
     flightView.render(div);
+    flightView.button.onclick = displayHotels;
   }
-  callback();
 }
+
 
 window.onload = function(){
 var departure_dropdown = document.getElementById('departure-select');
@@ -92,6 +101,7 @@ var arrival_dropdown = document.getElementById('arrival-select');
   button.type = 'button';
   button.onclick = function(){
     displayFlights(displayHotels);
+
   }
 
 
@@ -117,6 +127,19 @@ var arrival_dropdown = document.getElementById('arrival-select');
         );
         flights.push(flight);
       }
+      for (var i = 0; i < appData.hotels.length; i++) {
+        var hotelData = appData.hotels[i];
+        var hotel = new Accommodation(
+          hotelData.name,
+          hotelData.pricePerPerson,
+          hotelData.rooms,
+          hotelData.stars,
+          hotelData.address
+        );
+        console.log(hotel);
+        hotels.push(hotel);
+      }
+
 
       displayDepartureDropdown(flights);
       displayArrivalDropdown(flights);
@@ -137,13 +160,13 @@ var arrival_dropdown = document.getElementById('arrival-select');
     var city = arrivalSelect.value;
     console.log(city);
     console.log(arrivalSelect);
-    for (var i = 0; i < appData.hotels.length; i++) {
-      var hotel = appData.hotels[i];
+    for (var i = 0; i < hotels.length; i++) {
+      var hotel = hotels[i];
       if (hotel.address.city == city) {
-        var newHotel = new Accommodation(hotel);
         var view = new AccomView(hotel);
         view.render(div);
       }
     }
+    console.log(hotels);
   }
 }
