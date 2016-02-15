@@ -99,7 +99,7 @@
   ],
   "hotels" : [
     {
-      "name"      : “Crowne Plaza",
+      "name"      : "Crowne Plaza",
       "pricePerPerson" : 32,
       "rooms"    : 10,
       "stars"    : 3,
