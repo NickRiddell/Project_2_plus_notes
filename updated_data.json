@@ -1,0 +1,246 @@
+{
+  "flights" : [
+    {
+      "departure" : "Edinburgh",
+      "arrival"  : "Melbourne",
+      "departing" : "28-03-2016 T08:00:00", 
+      "arriving"  : "29-03-2016 T10:00:00", 
+      "stopover"  : null,
+      "price"    : 248
+    },
+    {
+      "departure" : "Edinburgh",
+      "arrival"  : "Melbourne",
+      "departing" : "28-03-2016 T12:00:00", 
+      "arriving"  : "29-03-2016 T13:00:00", 
+      "stopover"  : null,
+      "price"    : 256
+    },
+    {
+      "departure" : "Edinburgh",
+      "arrival"  : "Sydney",
+      "departing" : "28-03-2016 T10:00:00", 
+      "arriving"  : "28-03-2016 T11:00:00", 
+      "stopover"  : null,
+      "price"    : 293
+    },
+    {
+      "departure" : "Edinburgh",
+      "arrival"  : "Sydney",
+      "departing" : "28-03-2016 T04:00:00", 
+      "arriving"  : "28-03-2016 T06:00:00", 
+      "stopover"  : null,
+      "price"    : 310
+    },
+    {
+      "departure" : "Edinburgh",
+      "arrival"  : "Canberra",
+      "departing" : "28-03-2016 T11:00:00", 
+      "arriving"  : "29-03-2016 T13:00:00", 
+      "stopover"  : null,
+      "price"    : 212
+    },
+    {
+      "departure" : "Edinburgh",
+      "arrival"  : "Canberra",
+      "departing" : "28-03-2016 T10:00:00", 
+      "arriving"  : "29-03-2016 T12:00:00", 
+      "stopover"  : null,
+      "price"    : 245
+    },
+    {
+      "departure" : "Edinburgh",
+      "arrival"  : "Canberra",
+      "departing" : "28-03-2016 T10:00:00", 
+      "arriving"  : "29-03-2016 T14:00:00", 
+      "stopover"  : ["Dubai", "29-03-2016 T06:00:00", "29-03-2016 T08:00:00"],
+      "price"    : 245
+    },
+    {
+      "departure" : "Edinburgh",
+      "arrival"  : "Melbourne",
+      "departing" : "28-03-2016 T10:00:00", 
+      "arriving"  : "28-03-2016 T12:00:00", 
+      "stopover"  : ["Amsterdam", "28-03-2016 T04:00:00", "28-03-2016 T05:00:00"],
+      "price"    : 245
+    },
+    {
+      "departure" : "Edinburgh",
+      "arrival"  : "Sydney",
+      "departing" : "28-03-2016 T12:00:00", 
+      "arriving"  : "29-03-2016 T15:00:00", 
+      "stopover"  : ["Paris", "29-03-2016 T06:00:00", "29-03-2016 T09:00:00"],
+      "price"    : 245
+    },
+    {
+      "departure" : "Edinburgh",
+      "arrival"  : "Canberra",
+      "departing" : "28-03-2016 T10:00:00", 
+      "arriving"  : "29-03-2016 T16:00:00", 
+      "stopover"  : ["Berlin", "29-03-2016 T02:00:00", "29-03-2016 T05:00:00"],
+      "price"    : 245
+    },
+    {
+      "departure" : "Edinburgh",
+      "arrival"  : "Melbourne",
+      "departing" : "28-03-2016 T09:00:00", 
+      "arriving"  : "29-03-2016 T14:00:00", 
+      "stopover"  : ["Dubai", "29-03-2016 T06:00:00", "29-03-2016 T07:00:00"],
+      "price"    : 245
+    },
+    {
+      "departure" : "Edinburgh",
+      "arrival"  : "Sydney",
+      "departing" : "28-03-2016 T04:00:00", 
+      "arriving"  : "28-03-2016 T08:00:00", 
+      "stopover"  : ["Dubai", "28-03-2016 T01:00:00", "28-03-2016 T02:00:00"],
+      "price"    : 245
+    }
+  ],
+  "hotels" : [
+    {
+      "name"      : "Crowne Plaza",
+      "pricePerPerson" : 32,
+      "rooms"    : 10,
+      "stars"    : 3,
+      "latlng": [
+        -37.822848, 
+        144.955277
+      ],
+      "address"  : {
+        "building"  : "3",
+        "street"    : "Park Avenue",
+        "city"      : "Melbourne",
+        "zip"      : 3498890
+      }
+    },
+    {
+      "name"      : "Grand Hotel Melbourne",
+      "pricePerPerson" : 142,
+      "rooms"    : 43,
+      "stars"    : 5,
+      "latlng": [
+      -37.820674, 
+      144.954466
+      ],
+      "address"  : {
+        "building"  : "90",
+        "street"    : "Grand Lane",
+        "city"      : "Melbourne",
+        "zip"      : 4788278
+      }
+    },
+    {
+      "name"      : "Discovery Hostel",
+      "pricePerPerson" : 12,
+      "rooms"    : 60,
+      "stars"    : 1,
+      "latlng": [
+      -37.808740, 
+      144.958987
+      ],
+      "address"  : {
+        "building"  : "7",
+        "street"    : "Harbour Lane",
+        "city"      : "Melbourne",
+        "zip"      : 5789046
+      }
+    },
+    {
+      "name"      : "Four Seasons",
+      "pricePerPerson" : 78,
+      "rooms"    : 130,
+      "stars"    : 4,
+      "latlng": [
+      -33.861700, 
+      151.207606
+      ],
+      "address"  : {
+        "building"  : "67",
+        "street"    : "Hyde Street",
+        "city"      : "Sydney",
+        "zip"      : 8947548
+      }
+    },
+    {
+      "name"      : "City Garden Hotel",
+      "pricePerPerson" : 55,
+      "rooms"    : 14,
+      "stars"    : 2,
+      "latlng": [
+      -37.813469, 
+      144.961438
+      ],
+      "address"  : {
+        "building"  : "10",
+        "street"    : "Bourne Street",
+        "city"      : "Sydney",
+        "zip"      : 3673290
+      }
+    },
+    {
+      "name"      : "Sydney Central YHA Backpackers",
+      "pricePerPerson" : 12,
+      "rooms"    : 102,
+      "stars"    : 1,
+      "latlng": [
+      -33.881663, 
+      151.205200
+      ],
+      "address"  : {
+        "building"  : "64",
+        "street"    : "Stell Avenue",
+        "city"      : "Sydney",
+        "zip"      : 4567824
+      }
+    },
+    {
+      "name"      : "Royal Hotel",
+      "pricePerPerson" : 45,
+      "rooms"    : 20,
+      "stars"    : 3,
+      "latlng": [
+      -33.918300, 
+      151.242016
+      ],
+      "address"  : {
+        "building"  : "17",
+        "street"    : "Kestrel Street",
+        "city"      : "Canberra",
+        "zip"      : 567818
+      }
+    },
+    {
+      "name"      : "Surfside Backbackers",
+      "pricePerPerson" : 80,
+      "rooms"    : 8,
+      "stars"    : 4,
+      "latlng": [
+      -33.890358, 
+      151.272888
+      ],
+      "address"  : {
+        "building"  : "35",
+        "street"    : "High Street",
+        "city"      : "Canberra",
+        "zip"      : 6758473
+      }
+    },
+    {
+      "name"      : "Hilton",
+      "pricePerPerson" : 102,
+      "rooms"    : 170,
+      "stars"    : 4,
+      "latlng": [
+      -33.871904, 
+      151.207660
+      ],
+      "address"  : {
+        "building"  : "50",
+        "street"    : "May Lane",
+        "city"      : "Canberra",
+        "zip"      : 5678427
+      }
+    }
+  ]
+}
