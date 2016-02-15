@@ -103,6 +103,16 @@
     },
     {
       "departureTZ" : "Europe/London",
+      "arrivalTZ" : "Europe/Moscow",
+      "departure" : "Edinburgh",
+      "arrival"  : "Moscow",
+      "departing" : "28-03-2016 T09:00:00", 
+      "arriving"  : "28-03-2016 T15:30:00", 
+      "stopover"  : null,
+      "price"    : 565
+    },
+    {
+      "departureTZ" : "Europe/London",
       "arrivalTZ" : "Australia/Melbourne",
       "departure" : "Edinburgh",
       "arrival"  : "Melbourne",
