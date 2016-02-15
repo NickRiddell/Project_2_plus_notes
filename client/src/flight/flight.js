@@ -1,13 +1,15 @@
-var Flight = function(departure, arrival, departing, arriving, price){
+var Flight = function(departureTZ, arrivalTZ, departure, arrival, departing, arriving, price){
+  this.departureTZ = departureTZ;
+  this.arrivalTZ = arrivalTZ;
   this.departure = departure;
   this.arrival = arrival;
-  this.departing = new Date(this.convertDate(departing));
-  this.arriving = new Date(this.convertDate(arriving));
+  this.departing = this.convertDateString(departing);
+  this.arriving = this.convertDateString(arriving);
   this.price = price;
 }
 
 Flight.prototype = {
-  convertDate: function(date){
+  convertDateString: function(date){
     if(!date)return;
     var newDate = "";
 
@@ -15,6 +17,8 @@ Flight.prototype = {
     newDate += date.substring(3, 5) + "-";
     newDate += date.substring(0, 2);
     newDate += date.substring(11, 20);
+    newDate += "Z";
+    console.log("passed in date: ", newDate);
     return(newDate);
   }
 }
