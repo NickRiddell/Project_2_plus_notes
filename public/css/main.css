@@ -1,3 +1,16 @@
+body {
+  
+}
+
+h1.demo-headline {
+  color: white;
+}
+
+.demo-headline {
+  margin: 0px;
+  background-color: #1abc9c;
+}
+
 .datepicker {
   padding: 4px;
   -webkit-border-radius: 4px;
