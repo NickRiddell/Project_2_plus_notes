@@ -15,7 +15,7 @@ Flight.prototype = {
     newDate += date.substring(3, 5) + "-";
     newDate += date.substring(0, 2);
     newDate += date.substring(11, 20);
-    return(newDate);
+    return(newDate.UTC());
   }
 }
 
