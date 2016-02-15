@@ -4,7 +4,7 @@ var Accommodation = function() {
   this.rooms = Number;
   this.stars = Number;
   this.address = {};
-  this.bookings = [];
+  // this.bookings = [];
 }
 
 Accommodation.prototype = {

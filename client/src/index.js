@@ -34,6 +34,33 @@ var displayArrivalDropdown = function(flights) {
   }
 }
 
+var displayPassengerDropdown = function() {
+  var select = document.querySelector("#passenger-select");
+  for (var i = 1; i < 21; i++) {
+    var option = document.createElement("option");
+    option.innerText = i;
+    select.appendChild(option);
+  };
+}
+
+var displayNightsDropdown = function() {
+  var select = document.querySelector("#nights-select");
+  for (var i = 1; i < 22; i++) {
+    var option = document.createElement("option");
+    option.innerText = i;
+    select.appendChild(option);
+  };
+}
+
+var displayRoomsDropdown = function() {
+  var select = document.querySelector("#rooms-select");
+  for (var i = 1; i < 21; i++) {
+    var option = document.createElement("option");
+    option.innerText = i;
+    select.appendChild(option);
+  };
+}
+
 var displayFlights = function(callback) {
   console.log("button clicked");
   var div = document.querySelector('#flightList');
@@ -93,6 +120,9 @@ var arrival_dropdown = document.getElementById('arrival-select');
 
       displayDepartureDropdown(flights);
       displayArrivalDropdown(flights);
+      displayPassengerDropdown();
+      displayNightsDropdown();
+      displayRoomsDropdown();
 
 
     }

@@ -80,6 +80,33 @@
 	  }
 	}
 	
+	var displayPassengerDropdown = function() {
+	  var select = document.querySelector("#passenger-select");
+	  for (var i = 1; i < 21; i++) {
+	    var option = document.createElement("option");
+	    option.innerText = i;
+	    select.appendChild(option);
+	  };
+	}
+	
+	var displayNightsDropdown = function() {
+	  var select = document.querySelector("#nights-select");
+	  for (var i = 1; i < 22; i++) {
+	    var option = document.createElement("option");
+	    option.innerText = i;
+	    select.appendChild(option);
+	  };
+	}
+	
+	var displayRoomsDropdown = function() {
+	  var select = document.querySelector("#rooms-select");
+	  for (var i = 1; i < 21; i++) {
+	    var option = document.createElement("option");
+	    option.innerText = i;
+	    select.appendChild(option);
+	  };
+	}
+	
 	var displayFlights = function(callback) {
 	  console.log("button clicked");
 	  var div = document.querySelector('#flightList');
@@ -139,6 +166,9 @@
 	
 	      displayDepartureDropdown(flights);
 	      displayArrivalDropdown(flights);
+	      displayPassengerDropdown();
+	      displayNightsDropdown();
+	      displayRoomsDropdown();
 	
 	
 	    }
@@ -181,6 +211,12 @@
 	  this.rooms = document.createElement('p');
 	  this.rooms.innerText = "Rooms: " + hotel.rooms;
 	
+	  var button = document.createElement('button');
+	
+	  // this.bookings = document.createElement('p');
+	  // this.bookings.innerText = "Room availability: " + hotel.bookings;
+	
+	
 	};
 	
 	AccomView.prototype = {
@@ -189,7 +225,7 @@
 	  parent.appendChild(this.pricePerPerson);
 	  parent.appendChild(this.stars);
 	  parent.appendChild(this.rooms);
-	
+	  // parent.appendChild(this.bookings);
 	  }
 	};
 	
@@ -205,7 +241,7 @@
 	  this.rooms = Number;
 	  this.stars = Number;
 	  this.address = {};
-	  this.bookings = [];
+	  // this.bookings = [];
 	}
 	
 	Accommodation.prototype = {
@@ -255,10 +291,10 @@
 	  this.title.innerText = flight.departure + "-" + flight.arrival;
 	
 	  this.times = document.createElement('p');
-	  this.times.innerText = flight.departing + "-" + flight.arriving;
+	  this.times.innerHTML = "Departure: " + flight.departing + "<br>" + "Arrival: " + flight.arriving;
 	
 	  this.price = document.createElement('p');
-	  this.price.innerText = flight.price;
+	  this.price.innerText = "£" + flight.price;
 	};
 	
 	FlightView.prototype = {
