@@ -7,13 +7,6 @@ var FlightView = require('./flight/flightView.js');
 var flights = [];
 var hotels = [];
 
-var selectedValues = {
-  roomsWanted: 0,
-  nights: 0,
-  arrival: 0
-}
-
-
 var displayDepartureDropdown = function(flights) {
   names = [];
   var select = document.querySelector("#departure-select");

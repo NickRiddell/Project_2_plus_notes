@@ -7,9 +7,6 @@ var FlightView = function(flight){
   this.times = document.createElement('p');
   this.times.innerHTML = "Departure: " + momentString(flight.departing, flight.departureTZ) + "<br>" + "Arrival: " + momentString(flight.arriving, flight.arrivalTZ);
 
-  // this.times = document.createElement('p');
-  // this.times.innerHTML = "Departure: " + flight.departing + "<br>" + "Arrival: " + flight.arriving;
-
   this.price = document.createElement('p');
   this.price.innerText = "£" + flight.price;
 
