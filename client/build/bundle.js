@@ -52,7 +52,6 @@
 	var flights = [];
 	
 	var displayDepartureDropdown = function(flights) {
-	  console.log(flights);
 	  names = [];
 	  var select = document.querySelector("#departure-select");
 	  for (var i = 0; i < flights.length; i++) {
@@ -115,7 +114,7 @@
 	
 	
 	  console.log('loaded');
-	  var url = 'https://raw.githubusercontent.com/MichaelMacLeod/project_2/master/flight_data.json';
+	  var url = 'https://raw.githubusercontent.com/MichaelMacLeod/project_2/develop/updated_data.json';
 	  var request = new XMLHttpRequest();
 	  request.open('GET', url);
 	

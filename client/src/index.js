@@ -68,7 +68,7 @@ var arrival_dropdown = document.getElementById('arrival-select');
 
 
   console.log('loaded');
-  var url = 'https://raw.githubusercontent.com/MichaelMacLeod/project_2/master/flight_data.json';
+  var url = 'https://raw.githubusercontent.com/MichaelMacLeod/project_2/develop/updated_data.json';
   var request = new XMLHttpRequest();
   request.open('GET', url);
 
