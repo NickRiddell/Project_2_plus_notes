@@ -1,9 +1,9 @@
-var Accommodation = function() {
-  this.name = String;
-  this.pricePerPerson = Number;
-  this.rooms = Number;
-  this.stars = Number;
-  this.address = {};
+var Accommodation = function(name, pricePerPerson, rooms, stars, address) {
+  this.name = name;
+  this.pricePerPerson = pricePerPerson;
+  this.rooms = rooms;
+  this.stars = stars;
+  this.address = address;
   // this.bookings = [];
 }
 
@@ -13,6 +13,13 @@ Accommodation.prototype = {
       this.rooms -= rooms
     }
     else(console.log("Not enough rooms"))
+  },
+  isAvailable: function(desiredRooms) {
+    if (desiredRooms > this.rooms) {
+      return(false); 
+    }else{
+      return(true);
+    }
   }
 }
  

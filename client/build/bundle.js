@@ -51,6 +51,14 @@
 	
 	
 	var flights = [];
+	var hotels = [];
+	
+	var selectedValues = {
+	  roomsWanted: 0,
+	  nights: 0,
+	  arrival: 0
+	}
+	
 	
 	var displayDepartureDropdown = function(flights) {
 	  names = [];
@@ -107,7 +115,7 @@
 	  };
 	}
 	
-	var displayFlights = function(callback) {
+	var displayFlights = function(displayHotels) {
 	  console.log("button clicked");
 	  var div = document.querySelector('#flightList');
 	  div.innerHTML = "";
@@ -126,9 +134,10 @@
 	    var flight = filteredArray[i];
 	    var flightView = new FlightView(flight);
 	    flightView.render(div);
+	    flightView.button.onclick = displayHotels;
 	  }
-	  callback();
 	}
+	
 	
 	window.onload = function(){
 	var departure_dropdown = document.getElementById('departure-select');
@@ -138,6 +147,7 @@
 	  button.type = 'button';
 	  button.onclick = function(){
 	    displayFlights(displayHotels);
+	
 	  }
 	
 	
@@ -163,6 +173,19 @@
 	        );
 	        flights.push(flight);
 	      }
+	      for (var i = 0; i < appData.hotels.length; i++) {
+	        var hotelData = appData.hotels[i];
+	        var hotel = new Accommodation(
+	          hotelData.name,
+	          hotelData.pricePerPerson,
+	          hotelData.rooms,
+	          hotelData.stars,
+	          hotelData.address
+	        );
+	        console.log(hotel);
+	        hotels.push(hotel);
+	      }
+	
 	
 	      displayDepartureDropdown(flights);
 	      displayArrivalDropdown(flights);
@@ -183,14 +206,14 @@
 	    var city = arrivalSelect.value;
 	    console.log(city);
 	    console.log(arrivalSelect);
-	    for (var i = 0; i < appData.hotels.length; i++) {
-	      var hotel = appData.hotels[i];
+	    for (var i = 0; i < hotels.length; i++) {
+	      var hotel = hotels[i];
 	      if (hotel.address.city == city) {
-	        var newHotel = new Accommodation(hotel);
 	        var view = new AccomView(hotel);
 	        view.render(div);
 	      }
 	    }
+	    console.log(hotels);
 	  }
 	}
 
@@ -199,6 +222,8 @@
 /***/ function(module, exports) {
 
 	var AccomView = function(hotel){
+	  this.hotel = hotel;
+	
 	  this.name = document.createElement('h2');
 	  this.name.innerText = hotel.name;
 	
@@ -211,7 +236,6 @@
 	  this.rooms = document.createElement('p');
 	  this.rooms.innerText = "Rooms: " + hotel.rooms;
 	
-	  var button = document.createElement('button');
 	
 	  // this.bookings = document.createElement('p');
 	  // this.bookings.innerText = "Room availability: " + hotel.bookings;
@@ -221,11 +245,15 @@
 	
 	AccomView.prototype = {
 	  render: function(parent) {
+	  console.log(this.hotel);
+	  var roomsSelect = document.querySelector("#rooms-select")
+	
+	  if (!this.hotel.isAvailable(roomsSelect.value)){return};
 	  parent.appendChild(this.name);
 	  parent.appendChild(this.pricePerPerson);
 	  parent.appendChild(this.stars);
 	  parent.appendChild(this.rooms);
-	  // parent.appendChild(this.bookings);
+	  
 	  }
 	};
 	
@@ -235,12 +263,12 @@
 /* 2 */
 /***/ function(module, exports) {
 
-	var Accommodation = function() {
-	  this.name = String;
-	  this.pricePerPerson = Number;
-	  this.rooms = Number;
-	  this.stars = Number;
-	  this.address = {};
+	var Accommodation = function(name, pricePerPerson, rooms, stars, address) {
+	  this.name = name;
+	  this.pricePerPerson = pricePerPerson;
+	  this.rooms = rooms;
+	  this.stars = stars;
+	  this.address = address;
 	  // this.bookings = [];
 	}
 	
@@ -250,6 +278,13 @@
 	      this.rooms -= rooms
 	    }
 	    else(console.log("Not enough rooms"))
+	  },
+	  isAvailable: function(desiredRooms) {
+	    if (desiredRooms > this.rooms) {
+	      return(false); 
+	    }else{
+	      return(true);
+	    }
 	  }
 	}
 	 
@@ -295,6 +330,9 @@
 	
 	  this.price = document.createElement('p');
 	  this.price.innerText = "£" + flight.price;
+	
+	  this.button = document.createElement('button');
+	  this.button.innerText = "Choose Flight";
 	};
 	
 	FlightView.prototype = {
@@ -302,6 +340,7 @@
 	  parent.appendChild(this.title);
 	  parent.appendChild(this.times);
 	  parent.appendChild(this.price);
+	  parent.appendChild(this.button);
 	  }
 	};
 	

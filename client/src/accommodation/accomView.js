@@ -1,4 +1,6 @@
 var AccomView = function(hotel){
+  this.hotel = hotel;
+
   this.name = document.createElement('h2');
   this.name.innerText = hotel.name;
 
@@ -11,7 +13,6 @@ var AccomView = function(hotel){
   this.rooms = document.createElement('p');
   this.rooms.innerText = "Rooms: " + hotel.rooms;
 
-  var button = document.createElement('button');
 
   // this.bookings = document.createElement('p');
   // this.bookings.innerText = "Room availability: " + hotel.bookings;
@@ -21,11 +22,15 @@ var AccomView = function(hotel){
 
 AccomView.prototype = {
   render: function(parent) {
+  console.log(this.hotel);
+  var roomsSelect = document.querySelector("#rooms-select")
+
+  if (!this.hotel.isAvailable(roomsSelect.value)){return};
   parent.appendChild(this.name);
   parent.appendChild(this.pricePerPerson);
   parent.appendChild(this.stars);
   parent.appendChild(this.rooms);
-  // parent.appendChild(this.bookings);
+  
   }
 };
 
