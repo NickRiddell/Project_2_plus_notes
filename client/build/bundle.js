@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var AccomView = __webpack_require__(1);
+	var AccomView = __webpack_require__(4);
 	var Flight = __webpack_require__(2);
 	var FlightView = __webpack_require__(3);
 	
@@ -52,7 +52,6 @@
 	var flights = [];
 	
 	var displayDepartureDropdown = function(flights) {
-	  console.log(flights);
 	  names = [];
 	  var select = document.querySelector("#departure-select");
 	  for (var i = 0; i < flights.length; i++) {
@@ -164,37 +163,7 @@
 	}
 
 /***/ },
-/* 1 */
-/***/ function(module, exports) {
-
-	var AccomView = function(hotel){
-	  this.name = document.createElement('h2');
-	  this.name.innerText = hotel.name;
-	
-	  this.pricePerPerson = document.createElement('p');
-	  this.pricePerPerson.innerText = "£" +hotel.pricePerPerson;
-	
-	  this.stars = document.createElement('p');
-	  this.stars.innerText = "Stars: " +hotel.stars;
-	
-	  this.rooms = document.createElement('p');
-	  this.rooms.innerText = "Rooms available: " + hotel.rooms;
-	
-	};
-	
-	AccomView.prototype = {
-	  render: function(parent) {
-	  parent.appendChild(this.name);
-	  parent.appendChild(this.pricePerPerson);
-	  parent.appendChild(this.stars);
-	  parent.appendChild(this.rooms);
-	
-	  }
-	};
-	
-	module.exports = AccomView;
-
-/***/ },
+/* 1 */,
 /* 2 */
 /***/ function(module, exports) {
 
@@ -245,6 +214,37 @@
 	};
 	
 	module.exports = FlightView;
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+	var AccomView = function(hotel){
+	  this.name = document.createElement('h2');
+	  this.name.innerText = hotel.name;
+	
+	  this.pricePerPerson = document.createElement('p');
+	  this.pricePerPerson.innerText = "£" +hotel.pricePerPerson;
+	
+	  this.stars = document.createElement('p');
+	  this.stars.innerText = "Stars: " +hotel.stars;
+	
+	  this.rooms = document.createElement('p');
+	  this.rooms.innerText = "Rooms available: " + hotel.rooms;
+	
+	};
+	
+	AccomView.prototype = {
+	  render: function(parent) {
+	  parent.appendChild(this.name);
+	  parent.appendChild(this.pricePerPerson);
+	  parent.appendChild(this.stars);
+	  parent.appendChild(this.rooms);
+	
+	  }
+	};
+	
+	module.exports = AccomView;
 
 /***/ }
 /******/ ]);
