@@ -9,7 +9,7 @@ var AccomView = function(hotel){
   this.stars.innerText = "Stars: " +hotel.stars;
 
   this.rooms = document.createElement('p');
-  this.rooms.innerText = "Rooms available: " + hotel.rooms;
+  this.rooms.innerText = "Rooms: " + hotel.rooms;
 
 };
 

@@ -1,4 +1,5 @@
 var AccomView = require('./accommodation/accomView.js');
+var Accommodation = require('./accommodation/accommodation.js');
 var Flight = require('./flight/flight.js');
 var FlightView = require('./flight/flightView.js');
 
@@ -109,6 +110,7 @@ var arrival_dropdown = document.getElementById('arrival-select');
     for (var i = 0; i < appData.hotels.length; i++) {
       var hotel = appData.hotels[i];
       if (hotel.address.city == city) {
+        var newHotel = new Accommodation(hotel);
         var view = new AccomView(hotel);
         view.render(div);
       }
