@@ -147,8 +147,7 @@
         "street"    : "Park Avenue",
         "city"      : "Melbourne",
         "zip"      : 3498890
-      },
-      "bookings": [{"startDate": "28-03-2016", "endDate": "30-03-2016", "roomsBooked": 4}]
+      }
     },
     {
       "name"      : "Grand Hotel Melbourne",
@@ -164,8 +163,7 @@
         "street"    : "Grand Lane",
         "city"      : "Melbourne",
         "zip"      : 4788278
-      },
-      "bookings": []
+      }
     },
     {
       "name"      : "Discovery Hostel",
@@ -181,8 +179,7 @@
         "street"    : "Harbour Lane",
         "city"      : "Melbourne",
         "zip"      : 5789046
-      },
-      "bookings": []
+      }
     },
     {
       "name"      : "Four Seasons",
@@ -198,8 +195,7 @@
         "street"    : "Hyde Street",
         "city"      : "Sydney",
         "zip"      : 8947548
-      },
-      "bookings": []
+      }
     },
     {
       "name"      : "City Garden Hotel",
@@ -215,8 +211,7 @@
         "street"    : "Bourne Street",
         "city"      : "Sydney",
         "zip"      : 3673290
-      },
-      "bookings": []
+      }
     },
     {
       "name"      : "Sydney Central YHA Backpackers",
@@ -232,8 +227,7 @@
         "street"    : "Stell Avenue",
         "city"      : "Sydney",
         "zip"      : 4567824
-      },
-      "bookings": []
+      }
     },
     {
       "name"      : "Royal Hotel",
@@ -249,8 +243,7 @@
         "street"    : "Kestrel Street",
         "city"      : "Canberra",
         "zip"      : 567818
-      },
-      "bookings": []
+      }
     },
     {
       "name"      : "Surfside Backbackers",
@@ -266,8 +259,7 @@
         "street"    : "High Street",
         "city"      : "Canberra",
         "zip"      : 6758473
-      },
-      "bookings": []
+      }
     },
     {
       "name"      : "Hilton",
@@ -283,8 +275,7 @@
         "street"    : "May Lane",
         "city"      : "Canberra",
         "zip"      : 5678427
-      },
-      "bookings": []
+      }
     }
   ]
 }
