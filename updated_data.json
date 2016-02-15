@@ -20,7 +20,7 @@
       "departure" : "Edinburgh",
       "arrival"  : "Sydney",
       "departing" : "28-03-2016 T10:00:00", 
-      "arriving"  : "28-03-2016 T11:00:00", 
+      "arriving"  : "29-03-2016 T11:00:00", 
       "stopover"  : null,
       "price"    : 293
     },
@@ -28,7 +28,7 @@
       "departure" : "Edinburgh",
       "arrival"  : "Sydney",
       "departing" : "28-03-2016 T04:00:00", 
-      "arriving"  : "28-03-2016 T06:00:00", 
+      "arriving"  : "29-03-2016 T06:00:00", 
       "stopover"  : null,
       "price"    : 310
     },

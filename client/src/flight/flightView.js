@@ -3,10 +3,10 @@ var FlightView = function(flight){
   this.title.innerText = flight.departure + "-" + flight.arrival;
 
   this.times = document.createElement('p');
-  this.times.innerText = flight.departing + "-" + flight.arriving;
+  this.times.innerHTML = "Departure: " + flight.departing + "<br>" + "Arrival: " + flight.arriving;
 
   this.price = document.createElement('p');
-  this.price.innerText = flight.price;
+  this.price.innerText = "£" + flight.price;
 };
 
 FlightView.prototype = {
