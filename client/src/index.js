@@ -8,7 +8,7 @@ var flights = [];
 var hotels = [];
 
 var displayDepartureDropdown = function(flights) {
-  names = [];
+  var names = [];
   var select = document.querySelector("#departure-select");
   for (var i = 0; i < flights.length; i++) {
     var flight = flights[i];
@@ -22,7 +22,7 @@ var displayDepartureDropdown = function(flights) {
 }
 
 var displayArrivalDropdown = function(flights) {
-  names = [];
+  var names = [];
   var select = document.querySelector("#arrival-select");
   for (var i = 0; i < flights.length; i++) {
     var flight = flights[i];
@@ -92,9 +92,9 @@ var arrival_dropdown = document.getElementById('arrival-select');
 
   var button = document.querySelector('#go')
   button.type = 'button';
-  button.onclick = function(){
+  button.onclick = function(event){
+    event.preventDefault();
     displayFlights(displayHotels);
-
   }
 
 
@@ -107,7 +107,6 @@ var arrival_dropdown = document.getElementById('arrival-select');
     if (request.status === 200) { 
       console.log("Got the DATA");
       appData = JSON.parse(request.responseText); 
-      console.log(appData);
 
       for (var i = 0; i < appData.flights.length; i++) {
         var flightData = appData.flights[i];
@@ -131,7 +130,6 @@ var arrival_dropdown = document.getElementById('arrival-select');
           hotelData.stars,
           hotelData.address
         );
-        console.log(hotel);
         hotels.push(hotel);
       }
 

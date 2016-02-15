@@ -11,48 +11,65 @@
     <link href="/css/main.css" rel="stylesheet">
   </head>
   <body>
-
-  <h1 class="demo-headline">FLIGHTR.</h1>
+    <header>
+      <img src="/images/logo.png" id="logo">
+      <h1 class="demo-headline">FLIGHTR.</h1>
+      <h4 class="text-center"><em>Enlightened Travel Comparison</em></h4>
+    </header>
     <div class="jumbotron">
       <div class="container">
-        <h4>Choose departure airport:</h4>
-        <select style="width: 280px" id="departure-select" name="departure-select" class="form-control select select-primary select-block mbl">
-          <option selected="">Please Select</option>
-        </select>
-        <h4>Choose arrival airport:</h4>
-        <select style="width: 280px" id="arrival-select" name="arrival-select" class="form-control select select-primary select-block mbl">
-          <option selected="">Please Select</option>
-        </select>
-        <h4>Choose departure date:</h4>
-        <input id='date-input' type="date" data-date-inline-picker="true" class="form-control mbl datepicker-inline">
+        <form>
+          <div class="row">
+            <div class="col-sm-4">
+              <select id="departure-select" name="departure-select" class="form-control select mbl">
+                <option selected="">select departure destination</option>
+              </select>
+            </div>
 
-        <h4>Passengers:</h4>
-        <select style="width: 120px" id="passenger-select" name="passenger-select" class="form-control select select-primary select-block mbl">
-          <option selected="">Please Select</option>
-        </select>
+            <div class="col-sm-4">
+              <select id="arrival-select" name="arrival-select" class="form-control select mbl">
+                <option selected="">select arrival destination</option>
+              </select>
+            </div>
 
-        <h4>Nights:</h4>
-        <select style="width: 120px" id="nights-select" name="nights-select" class="form-control select select-primary select-block mbl">
-          <option selected="">Please Select</option>
-        </select>
+            <div class="col-sm-4">
+              <input id='date-input' name='date-input' type="date" data-date-inline-picker="true" class="form-control mbl select datepicker">
+            </div>
 
-        <h4>Rooms:</h4>
-        <select style="width: 120px" id="rooms-select" name="rooms-select" class="form-control select select-primary select-block mbl">
-          <option selected="">Please Select</option>
-        </select>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <select id="passenger-select" name="passenger-select" class="form-control select mbl">
+                <option selected="">select number of passengers</option>
+              </select>
+            </div>
 
-        <button id='go' class="btn btn-hg btn-primary">Go</button>
+            <div class="col-sm-4">
+              <select id="nights-select" name="nights-select" class="form-control select mbl">
+                <option selected="">select number of nights</option>
+              </select>
+            </div>
+
+            <div class="col-sm-4">
+              <select id="rooms-select" name="rooms-select" class="form-control select mbl">
+                <option selected="">select number of rooms</option>
+              </select>
+            </div> 
+          </div>
+
+          <button id='go' class="btn btn-hg btn-primary">Go</button>
+        </form>
       </div>
     </div>
 
-  <div class="container">
-    <div id='flightList'>
-    </div>
+    <div class="container">
+      <div id='flightList'>
+      </div>
 
-    <div id='accomList'>
-    </div>
+      <div id='accomList'>
+      </div>
 
-  </div>
+    </div>
 
   </body>
 </html>

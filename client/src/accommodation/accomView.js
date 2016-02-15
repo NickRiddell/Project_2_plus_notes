@@ -12,12 +12,6 @@ var AccomView = function(hotel){
 
   this.rooms = document.createElement('p');
   this.rooms.innerText = "Rooms: " + hotel.rooms;
-
-
-  // this.bookings = document.createElement('p');
-  // this.bookings.innerText = "Room availability: " + hotel.bookings;
-
-
 };
 
 AccomView.prototype = {

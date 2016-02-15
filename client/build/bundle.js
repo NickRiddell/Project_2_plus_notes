@@ -54,7 +54,7 @@
 	var hotels = [];
 	
 	var displayDepartureDropdown = function(flights) {
-	  names = [];
+	  var names = [];
 	  var select = document.querySelector("#departure-select");
 	  for (var i = 0; i < flights.length; i++) {
 	    var flight = flights[i];
@@ -68,7 +68,7 @@
 	}
 	
 	var displayArrivalDropdown = function(flights) {
-	  names = [];
+	  var names = [];
 	  var select = document.querySelector("#arrival-select");
 	  for (var i = 0; i < flights.length; i++) {
 	    var flight = flights[i];
@@ -138,9 +138,9 @@
 	
 	  var button = document.querySelector('#go')
 	  button.type = 'button';
-	  button.onclick = function(){
+	  button.onclick = function(event){
+	    event.preventDefault();
 	    displayFlights(displayHotels);
-	
 	  }
 	
 	
@@ -153,7 +153,6 @@
 	    if (request.status === 200) { 
 	      console.log("Got the DATA");
 	      appData = JSON.parse(request.responseText); 
-	      console.log(appData);
 	
 	      for (var i = 0; i < appData.flights.length; i++) {
 	        var flightData = appData.flights[i];
@@ -177,7 +176,6 @@
 	          hotelData.stars,
 	          hotelData.address
 	        );
-	        console.log(hotel);
 	        hotels.push(hotel);
 	      }
 	
@@ -230,12 +228,6 @@
 	
 	  this.rooms = document.createElement('p');
 	  this.rooms.innerText = "Rooms: " + hotel.rooms;
-	
-	
-	  // this.bookings = document.createElement('p');
-	  // this.bookings.innerText = "Room availability: " + hotel.bookings;
-	
-	
 	};
 	
 	AccomView.prototype = {
@@ -333,15 +325,19 @@
 	  this.price.innerText = "£" + flight.price;
 	
 	  this.button = document.createElement('button');
+	  this.button.className = "btn btn-hg btn-primary";
 	  this.button.innerText = "Choose Flight";
 	};
 	
 	FlightView.prototype = {
 	  render: function(parent) {
-	  parent.appendChild(this.title);
-	  parent.appendChild(this.times);
-	  parent.appendChild(this.price);
-	  parent.appendChild(this.button);
+	    var flightDiv = document.createElement("div");
+	    flightDiv.className = "flight";
+	    flightDiv.appendChild(this.title);
+	    flightDiv.appendChild(this.times);
+	    flightDiv.appendChild(this.price);
+	    flightDiv.appendChild(this.button);
+	    parent.appendChild(flightDiv);
 	  }
 	};
 	
