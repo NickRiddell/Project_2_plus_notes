@@ -11,6 +11,12 @@ var AccomView = function(hotel){
   this.rooms = document.createElement('p');
   this.rooms.innerText = "Rooms: " + hotel.rooms;
 
+  var button = document.createElement('button');
+
+  // this.bookings = document.createElement('p');
+  // this.bookings.innerText = "Room availability: " + hotel.bookings;
+
+
 };
 
 AccomView.prototype = {
@@ -19,7 +25,7 @@ AccomView.prototype = {
   parent.appendChild(this.pricePerPerson);
   parent.appendChild(this.stars);
   parent.appendChild(this.rooms);
-
+  // parent.appendChild(this.bookings);
   }
 };
 
