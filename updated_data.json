@@ -148,7 +148,7 @@
         "city"      : "Melbourne",
         "zip"      : 3498890
       },
-      "bookings": [{"startDate": 28-03-2016, "endDate": 30-03-2016, "roomsBooked": 4}]
+      "bookings": [{"startDate": "28-03-2016", "endDate": "30-03-2016", "roomsBooked": 4}]
     },
     {
       "name"      : "Grand Hotel Melbourne",
