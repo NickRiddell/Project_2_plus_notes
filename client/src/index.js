@@ -1,4 +1,4 @@
-var AccomView = require('./accomView.js');
+var AccomView = require('./accommodation/accomView.js');
 var Flight = require('./flight/flight.js');
 var FlightView = require('./flight/flightView.js');
 
