@@ -1,10 +1,8 @@
 var sortFlights = function(flights, sortBy) {
-  console.log("sorting flights:", flights);
   if (sortBy === "price") {
     flights.sort(function(a, b) {
      return a.price-b.price;
     })
-    return flights;
   }
   else if (sortBy === "journey time") {
     flights.sort(function(a, b) {
@@ -23,13 +21,22 @@ var sortFlights = function(flights, sortBy) {
       var bJourneyTimeHours = bJourneyTime/(60*60*1000);
       console.log("b's journey time: ", bJourneyTimeHours);
       return aJourneyTime-bJourneyTime;
-    })
-    return flights;
+    })  
   }
+
+  // filter for min and max requested flight prices
+  var filteredFlights = flights.filter(byMinAndMaxPrice);
+  return filteredFlights;
+}
+
+var byMinAndMaxPrice = function(obj) {
+  return (obj.price >= minFlightPrice) && (obj.price <= maxFlightPrice);
 }
 
 module.exports = sortFlights;
 
+// var minFlightPrice = 17;
+// var maxFlightPrice = 60;
 // var flights=[];
 // flights[0]={name:"CCC", price:32, departing: "2016-03-28T08:00:00Z", arriving: "2016-03-29T10:00:00Z"};
 // flights[1]={name:"BBB", price:17, departing: "2016-03-28T12:00:00Z", arriving: "2016-03-29T13:00:00Z"};
@@ -37,7 +44,7 @@ module.exports = sortFlights;
 // flights[3]={name:"DDD", price:62, departing: "2016-03-28T04:00:00Z", arriving: "2016-03-29T06:00:00Z"};
 
 // var sorted = sortFlights(flights, "price");
-// console.log(sorted);
+// console.log("Sorted by price", sorted);
 // sorted = sortFlights(flights, "journey time");
-// console.log(sorted);
+// console.log("Sorted by journey time",sorted);
 
