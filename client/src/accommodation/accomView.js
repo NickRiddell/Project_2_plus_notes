@@ -16,16 +16,18 @@ var AccomView = function(hotel){
 
 AccomView.prototype = {
   render: function(parent) {
-  console.log(this.hotel);
   var roomsSelect = document.querySelector("#rooms-select")
-
   if (!this.hotel.isAvailable(roomsSelect.value)){return};
-  parent.appendChild(this.name);
-  parent.appendChild(this.pricePerPerson);
-  parent.appendChild(this.stars);
-  parent.appendChild(this.rooms);
-  
+  var accomDiv = document.createElement("div");
+  accomDiv.className = "hotel";
+  accomDiv.appendChild(this.name);
+  accomDiv.appendChild(this.pricePerPerson);
+  accomDiv.appendChild(this.stars);
+  accomDiv.appendChild(this.rooms);
+  parent.appendChild(accomDiv);
+  this.hotel.rendered = true;
   }
 };
+
 
 module.exports = AccomView;

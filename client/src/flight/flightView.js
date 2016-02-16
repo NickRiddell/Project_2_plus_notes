@@ -2,6 +2,7 @@ var momentString = require('./momentString');
 var moment = require('moment-timezone');
 
 var FlightView = function(flight){
+  this.flight = flight;
   this.title = document.createElement('h2');
   this.title.innerText = flight.departure + "-" + flight.arrival;
   this.times = document.createElement('p');

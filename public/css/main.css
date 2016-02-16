@@ -59,3 +59,11 @@ header h1.demo-headline {
     padding-right: 0px;
   }
 }
+
+#map {
+  height: 500px;
+  width: 500px;
+  background-color: white;
+  }
+
+

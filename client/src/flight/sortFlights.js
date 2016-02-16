@@ -1,4 +1,5 @@
 var sortFlights = function(flights, sortBy) {
+  console.log("sorting flights:", flights);
   if (sortBy === "price") {
     flights.sort(function(a, b) {
      return a.price-b.price;
