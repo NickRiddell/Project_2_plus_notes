@@ -1,6 +1,7 @@
 var momentString = require('./momentString');
 
 var FlightView = function(flight){
+  this.flight = flight;
   this.title = document.createElement('h2');
   this.title.innerText = flight.departure + "-" + flight.arrival;
 

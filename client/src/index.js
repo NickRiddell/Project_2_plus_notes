@@ -2,9 +2,11 @@ var AccomView = require('./accommodation/accomView.js');
 var FlightView = require('./flight/flightView.js');
 var sortAccommodation = require('./accommodation/sortAccommodation.js');
 var getData = require('./getData.js');
+var displayMap = require('./maps/displayMap.js');
 
 var flights = [];
 var hotels = [];
+var currentFlight = undefined;
 
 var displayFlights = function(displayHotels) {
   console.log("button clicked");
@@ -25,7 +27,9 @@ var displayFlights = function(displayHotels) {
     var flight = filteredArray[i];
     var flightView = new FlightView(flight);
     flightView.render(div);
-    flightView.button.onclick = displayHotels;
+    flightView.button.onclick = function(){
+      displayHotels(flight);
+    }
   }
 }
 
@@ -49,7 +53,7 @@ var arrival_dropdown = document.getElementById('arrival-select');
   });
 
 
-  var displayHotels = function() {
+  var displayHotels = function(flight) {
     console.log("displaying hotels");
     var div = document.querySelector('#accomList');
     div.innerHTML = "";
@@ -65,19 +69,19 @@ var arrival_dropdown = document.getElementById('arrival-select');
         view.render(div);
       }
     }
-    displaySortButtons();
+    displaySortButtons(flight);
     console.log(hotels);
   }
 
-  var displaySortButtons = function() {
-    var accomSortButton = document.querySelector('#accomSortButtons');
-    accomSortButton.innerHTML = "";
+  var displaySortButtons = function(flight) {
+    var accomSortButtons = document.querySelector('#accomSortButtons');
+    accomSortButtons.innerHTML = "";
 
     var priceSortButton = document.createElement('button');
     priceSortButton.type = 'button';
     priceSortButton.className = "btn btn-hg btn-primary";
     priceSortButton.innerText = "Sort by price";
-    accomSortButton.appendChild(priceSortButton);
+    accomSortButtons.appendChild(priceSortButton);
     priceSortButton.onclick = function() {
       sortAccommodation(hotels, "price");
       displayHotels();
@@ -86,10 +90,24 @@ var arrival_dropdown = document.getElementById('arrival-select');
     starsSortButton.type = 'button';
     starsSortButton.className = "btn btn-hg btn-primary";
     starsSortButton.innerText = "Sort by stars";
-    accomSortButton.appendChild(starsSortButton);
+    accomSortButtons.appendChild(starsSortButton);
     starsSortButton.onclick = function() {
       sortAccommodation(hotels, "stars");
       displayHotels();
     }
+    var showOnMap = document.createElement('button');
+    starsSortButton.type = 'button';
+    starsSortButton.className = "btn btn-hg btn-primary";
+    starsSortButton.innerText = "Show on Map";
+    accomSortButtons.appendChild(showOnMap);
+    showOnMap.onclick = function() {
+      displayMap(flight);
+    }
   }
 }
+
+
+
+
+
+

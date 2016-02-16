@@ -4,7 +4,15 @@
       "departureTZ" : "Europe/London",
       "arrivalTZ" : "Australia/Melbourne",
       "departure" : "Edinburgh",
+      "departureLatLng": [
+       55.9411418,
+       -3.2754234
+      ],
       "arrival"  : "Melbourne",
+      "arrivalLatLng": [
+       -37.8136, 
+       144.9631
+      ],
       "departing" : "28-03-2016 T08:00:00", 
       "arriving"  : "29-03-2016 T10:00:00", 
       "stopover"  : null,
@@ -14,7 +22,15 @@
       "departureTZ" : "Europe/London",
       "arrivalTZ" : "Australia/Melbourne",
       "departure" : "Edinburgh",
+      "departureLatLng": [
+       55.9411418,
+       -3.2754234
+      ],
       "arrival"  : "Melbourne",
+      "arrivalLatLng": [
+       -37.8136, 
+       144.9631
+      ],
       "departing" : "28-03-2016 T12:00:00", 
       "arriving"  : "29-03-2016 T13:00:00", 
       "stopover"  : null,
@@ -24,7 +40,15 @@
       "departureTZ" : "Europe/London",
       "arrivalTZ" : "Australia/Sydney",
       "departure" : "Edinburgh",
+      "departureLatLng": [
+       55.9411418,
+       -3.2754234
+      ],
       "arrival"  : "Sydney",
+      "arrivalLatLng": [
+       -33.8695194,
+       151.1162379
+      ],
       "departing" : "28-03-2016 T10:00:00", 
       "arriving"  : "29-03-2016 T11:00:00", 
       "stopover"  : null,
@@ -34,7 +58,15 @@
       "departureTZ" : "Europe/London",
       "arrivalTZ" : "Australia/Sydney",
       "departure" : "Edinburgh",
+      "departureLatLng": [
+       55.9411418,
+       -3.2754234
+      ],
       "arrival"  : "Sydney",
+      "arrivalLatLng": [
+       -33.8695194,
+       151.1162379
+      ],
       "departing" : "28-03-2016 T04:00:00", 
       "arriving"  : "29-03-2016 T06:00:00", 
       "stopover"  : null,
@@ -44,7 +76,15 @@
       "departureTZ" : "Europe/London",
       "arrivalTZ" : "Australia/Canberra",
       "departure" : "Edinburgh",
+      "departureLatLng": [
+       55.9411418,
+       -3.2754234
+      ],
       "arrival"  : "Canberra",
+      "arrivalLatLng": [
+       -35.2812033,
+       149.1203938
+      ],
       "departing" : "28-03-2016 T11:00:00", 
       "arriving"  : "29-03-2016 T13:00:00", 
       "stopover"  : null,
@@ -54,7 +94,15 @@
       "departureTZ" : "Europe/London",
       "arrivalTZ" : "Australia/Canberra",
       "departure" : "Edinburgh",
+      "departureLatLng": [
+       55.9411418,
+       -3.2754234
+      ],
       "arrival"  : "Canberra",
+      "arrivalLatLng": [
+       -35.2812033,
+       149.1203938
+      ],
       "departing" : "28-03-2016 T10:00:00", 
       "arriving"  : "29-03-2016 T12:00:00", 
       "stopover"  : null,
@@ -65,47 +113,103 @@
       "departureTZ" : "Europe/London",
       "arrivalTZ" : "Australia/Canberra",
       "departure" : "Edinburgh",
+      "departureLatLng": [
+       55.9411418,
+       -3.2754234
+      ],
       "arrival"  : "Canberra",
+      "arrivalLatLng": [
+       -35.2812033,
+       149.1203938
+      ],
       "departing" : "28-03-2016 T10:00:00", 
       "arriving"  : "29-03-2016 T14:00:00", 
       "stopover"  : ["Dubai", "29-03-2016 T06:00:00", "29-03-2016 T08:00:00"],
+      "stopoverLatLng": [
+       25.2531793,
+       55.3306539
+      ],
       "price"    : 245
     },
     {
       "departureTZ" : "Europe/London",
       "arrivalTZ" : "Australia/Melbourne",
       "departure" : "Edinburgh",
+      "departureLatLng": [
+       55.9411418,
+       -3.2754234
+      ],
       "arrival"  : "Melbourne",
+      "arrivalLatLng": [
+       -37.8136, 
+       144.9631
+      ],
       "departing" : "28-03-2016 T10:00:00", 
       "arriving"  : "29-03-2016 T12:00:00", 
       "stopover"  : ["Amsterdam", "28-03-2016 T12:00:00", "28-03-2016 T13:00:00"],
+      "stopoverLatLng": [
+       52.3105419,
+       4.7595197
+      ],
       "price"    : 245
     },
     {
       "departureTZ" : "Europe/London",
       "arrivalTZ" : "Australia/Sydney",
       "departure" : "Edinburgh",
+      "departureLatLng": [
+       55.9411418,
+       -3.2754234
+      ],
       "arrival"  : "Sydney",
+      "arrivalLatLng": [
+       -33.8695194,
+       151.1162379
+      ],
       "departing" : "28-03-2016 T12:00:00", 
       "arriving"  : "29-03-2016 T15:00:00", 
       "stopover"  : ["Paris", "28-03-2016 T14:00:00", "28-03-2016 T16:00:00"],
+      "stopoverLatLng": [
+       49.0096941,
+       2.5391698
+      ],
       "price"    : 245
     },
     {
       "departureTZ" : "Europe/London",
       "arrivalTZ" : "Australia/Canberra",
       "departure" : "Edinburgh",
+      "departureLatLng": [
+       55.9411418,
+       -3.2754234
+      ],
       "arrival"  : "Canberra",
+      "arrivalLatLng": [
+       -35.2812033,
+       149.1203938
+      ],
       "departing" : "28-03-2016 T10:00:00", 
       "arriving"  : "29-03-2016 T16:00:00", 
       "stopover"  : ["Berlin", "28-03-2016 T13:00:00", "28-03-2016 T14:00:00"],
+      "stopoverLatLng": [
+       52.3854444,
+       13.4865959
+      ],
       "price"    : 245
     },
     {
       "departureTZ" : "Europe/London",
       "arrivalTZ" : "Europe/Moscow",
       "departure" : "Edinburgh",
+      "departureLatLng": [
+       55.9411418,
+       -3.2754234
+      ],
       "arrival"  : "Moscow",
+      "arrivalLatLng": [
+       55.74929,
+       37.5973532
+      ],
       "departing" : "28-03-2016 T09:00:00", 
       "arriving"  : "28-03-2016 T15:30:00", 
       "stopover"  : null,
@@ -115,20 +219,44 @@
       "departureTZ" : "Europe/London",
       "arrivalTZ" : "Australia/Melbourne",
       "departure" : "Edinburgh",
+      "departureLatLng": [
+       55.9411418,
+       -3.2754234
+      ],
       "arrival"  : "Melbourne",
+      "arrivalLatLng": [
+       -37.8136, 
+       144.9631
+      ],
       "departing" : "28-03-2016 T09:00:00", 
       "arriving"  : "29-03-2016 T14:00:00", 
       "stopover"  : ["Dubai", "29-03-2016 T06:00:00", "29-03-2016 T07:00:00"],
+      "stopoverLatLng": [
+       25.2531793,
+       55.3306539
+      ],
       "price"    : 245
     },
     {
       "departureTZ" : "Europe/London",
       "arrivalTZ" : "Australia/Sydney",
       "departure" : "Edinburgh",
+      "departureLatLng": [
+       55.9411418,
+       -3.2754234
+      ],
       "arrival"  : "Sydney",
+      "arrivalLatLng": [
+       -33.8695194,
+       151.1162379
+      ],
       "departing" : "28-03-2016 T04:00:00", 
       "arriving"  : "29-03-2016 T08:00:00", 
       "stopover"  : ["Dubai", "29-03-2016 T01:00:00", "29-03-2016 T02:00:00"],
+      "stopoverLatLng": [
+       25.2531793,
+       55.3306539
+      ],
       "price"    : 245
     }
   ],
