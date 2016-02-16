@@ -1,6 +1,7 @@
 var AccomView = require('./accommodation/accomView.js');
 var FlightView = require('./flight/flightView.js');
 var sortAccommodation = require('./accommodation/sortAccommodation.js');
+var sortFlights = require('./flight/sortFlights.js');
 var getData = require('./getData.js');
 
 var flights = [];
@@ -27,6 +28,7 @@ var displayFlights = function(displayHotels) {
     flightView.render(div);
     flightView.button.onclick = displayHotels;
   }
+  displayFlightSortButtons();
 }
 
 
@@ -65,11 +67,11 @@ var arrival_dropdown = document.getElementById('arrival-select');
         view.render(div);
       }
     }
-    displaySortButtons();
+    displayAccomSortButtons();
     console.log(hotels);
   }
 
-  var displaySortButtons = function() {
+  var displayAccomSortButtons = function() {
     var accomSortButton = document.querySelector('#accomSortButtons');
     accomSortButton.innerHTML = "";
 
@@ -92,4 +94,28 @@ var arrival_dropdown = document.getElementById('arrival-select');
       displayHotels();
     }
   }
+}
+
+var displayFlightSortButtons = function() {
+  var flightSortButton = document.querySelector('#flightSortButtons');
+  flightSortButton.innerHTML = "";
+
+  var priceSortButton = document.createElement('button');
+  priceSortButton.type = 'button';
+  priceSortButton.className = "btn btn-hg btn-primary";
+  priceSortButton.innerText = "Sort by price";
+  flightSortButton.appendChild(priceSortButton);
+  priceSortButton.onclick = function() {
+    sortFlights(flights, "price");
+    displayFlights();
+  }
+  // var starsSortButton = document.createElement('button');
+  // starsSortButton.type = 'button';
+  // starsSortButton.className = "btn btn-hg btn-primary";
+  // starsSortButton.innerText = "Sort by stars";
+  // flightSortButton.appendChild(starsSortButton);
+  // starsSortButton.onclick = function() {
+  //   sortAccommodation(hotels, "stars");
+  //   displayHotels();
+  // }
 }
