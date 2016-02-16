@@ -154,7 +154,7 @@ var arrival_dropdown = document.getElementById('arrival-select');
     var city = arrivalSelect.value;
     console.log(city);
     console.log(arrivalSelect);
-    hotels = sortAccommodation(hotels, "price");
+    displaySortButtons();
     for (var i = 0; i < hotels.length; i++) {
       var hotel = hotels[i];
       if (hotel.address.city == city) {
@@ -163,5 +163,16 @@ var arrival_dropdown = document.getElementById('arrival-select');
       }
     }
     console.log(hotels);
+  }
+
+  var displaySortButtons = function() {
+    var priceSortButton = document.querySelector('#accomSortButtons');
+    priceSortButton.type = 'button';
+    priceSortButton.className = "btn btn-hg btn-primary";
+    priceSortButton.innerText = "Sort by stars";
+    priceSortButton.onclick = function() {
+      sortAccommodation(hotels, "stars");
+      displayHotels();
+    }
   }
 }
