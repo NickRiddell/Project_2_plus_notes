@@ -7,12 +7,9 @@ header {
 }
 
 #logo {
+  padding-top: 10px;
   width: 80px;
-  position: fixed;
-  top: 20px;
-  left: 0%;
-  z-index: 10;
-  display: none;
+  display: block;
 }
 
 h4 {
