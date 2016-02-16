@@ -2,6 +2,7 @@ var AccomView = require('./accommodation/accomView.js');
 var Accommodation = require('./accommodation/accommodation.js');
 var Flight = require('./flight/flight.js');
 var FlightView = require('./flight/flightView.js');
+var sortAccommodation = require('./accommodation/sortAccommodation.js');
 
 
 var flights = [];
@@ -153,6 +154,7 @@ var arrival_dropdown = document.getElementById('arrival-select');
     var city = arrivalSelect.value;
     console.log(city);
     console.log(arrivalSelect);
+    hotels = sortAccommodation(hotels, "price");
     for (var i = 0; i < hotels.length; i++) {
       var hotel = hotels[i];
       if (hotel.address.city == city) {
