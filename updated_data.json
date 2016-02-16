@@ -326,13 +326,13 @@
       }
     },
     {
-      "name"      : "City Garden Hotel",
+      "name"      : "Holiday Inn Old Sydney",
       "pricePerPerson" : 55,
       "rooms"    : 14,
       "stars"    : 2,
       "latlng": [
-      -37.813469, 
-      144.961438
+      -33.8581036,
+      151.2046194
       ],
       "address"  : {
         "building"  : "10",
