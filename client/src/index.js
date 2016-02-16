@@ -109,13 +109,13 @@ var displayFlightSortButtons = function() {
     sortFlights(flights, "price");
     displayFlights();
   }
-  // var starsSortButton = document.createElement('button');
-  // starsSortButton.type = 'button';
-  // starsSortButton.className = "btn btn-hg btn-primary";
-  // starsSortButton.innerText = "Sort by stars";
-  // flightSortButton.appendChild(starsSortButton);
-  // starsSortButton.onclick = function() {
-  //   sortAccommodation(hotels, "stars");
-  //   displayHotels();
-  // }
+  var journeySortButton = document.createElement('button');
+  journeySortButton.type = 'button';
+  journeySortButton.className = "btn btn-hg btn-primary";
+  journeySortButton.innerText = "Sort by journey length";
+  flightSortButton.appendChild(journeySortButton);
+  journeySortButton.onclick = function() {
+    sortFlights(flights, "journey time");
+    displayFlights();
+  }
 }
