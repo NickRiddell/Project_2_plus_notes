@@ -79,8 +79,6 @@ window.onload = function(){
 var departure_dropdown = document.getElementById('departure-select');
 var arrival_dropdown = document.getElementById('arrival-select');
 
-
-
   console.log('loaded');
 
   getData(flights, hotels, function(){
@@ -92,11 +90,6 @@ var arrival_dropdown = document.getElementById('arrival-select');
       displayFlights(displayHotels);
     }
   });
-
-
- 
-
-
 }
 
 var displayFlightSortButtons = function() {
