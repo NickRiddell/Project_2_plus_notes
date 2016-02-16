@@ -11,15 +11,19 @@ var FlightView = function(flight){
   this.price.innerText = "£" + flight.price;
 
   this.button = document.createElement('button');
+  this.button.className = "btn btn-hg btn-primary";
   this.button.innerText = "Choose Flight";
 };
 
 FlightView.prototype = {
   render: function(parent) {
-  parent.appendChild(this.title);
-  parent.appendChild(this.times);
-  parent.appendChild(this.price);
-  parent.appendChild(this.button);
+    var flightDiv = document.createElement("div");
+    flightDiv.className = "flight";
+    flightDiv.appendChild(this.title);
+    flightDiv.appendChild(this.times);
+    flightDiv.appendChild(this.price);
+    flightDiv.appendChild(this.button);
+    parent.appendChild(flightDiv);
   }
 };
 
