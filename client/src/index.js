@@ -6,10 +6,12 @@ var displayMap = require('./maps/displayMap.js');
 
 var flights = [];
 var hotels = [];
-var currentFlight = undefined;
 
 var displayFlights = function(displayHotels) {
   console.log("button clicked");
+  document.querySelector('#accomSortButtons').innerHTML = "";
+  document.querySelector('#mapContainer').innerHTML = "";
+  document.querySelector('#accomList').innerHTML = "";
   var div = document.querySelector('#flightList');
   div.innerHTML = "";
   var filteredArray = flights.filter(function(flight) {
@@ -48,6 +50,7 @@ var arrival_dropdown = document.getElementById('arrival-select');
     goButton.type = 'button';
     goButton.onclick = function(event){
       event.preventDefault();
+
       displayFlights(displayHotels);
     }
   });
@@ -64,6 +67,7 @@ var arrival_dropdown = document.getElementById('arrival-select');
     
     for (var i = 0; i < hotels.length; i++) {
       var hotel = hotels[i];
+      hotel.rendered = false;
       if (hotel.address.city == city) {
         var view = new AccomView(hotel);
         view.render(div);
@@ -96,12 +100,12 @@ var arrival_dropdown = document.getElementById('arrival-select');
       displayHotels();
     }
     var showOnMap = document.createElement('button');
-    starsSortButton.type = 'button';
-    starsSortButton.className = "btn btn-hg btn-primary";
-    starsSortButton.innerText = "Show on Map";
+    showOnMap.type = 'button';
+    showOnMap.className = "btn btn-hg btn-primary";
+    showOnMap.innerText = "Show on Map";
     accomSortButtons.appendChild(showOnMap);
     showOnMap.onclick = function() {
-      displayMap(flight);
+      displayMap(flight, hotels);
     }
   }
 }

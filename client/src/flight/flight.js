@@ -1,10 +1,13 @@
-var Flight = function(departureTZ, arrivalTZ, departure, arrival, departing, arriving, price){
+var Flight = function(departureTZ, arrivalTZ, departure, departureLatLng, arrival, arrivalLatLng, departing, arriving, stopover, price){
   this.departureTZ = departureTZ;
   this.arrivalTZ = arrivalTZ;
   this.departure = departure;
+  this.departureLatLng = departureLatLng;
   this.arrival = arrival;
+  this.arrivalLatLng = arrivalLatLng;
   this.departing = this.convertDateString(departing);
   this.arriving = this.convertDateString(arriving);
+  this.stopover = stopover;
   this.price = price;
 }
 

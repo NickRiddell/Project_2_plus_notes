@@ -363,8 +363,8 @@
       "rooms"    : 20,
       "stars"    : 3,
       "latlng": [
-      -33.918300, 
-      151.242016
+      -35.3401064,
+      149.0817826
       ],
       "address"  : {
         "building"  : "17",
@@ -374,13 +374,13 @@
       }
     },
     {
-      "name"      : "Surfside Backbackers",
+      "name"      : "Dickson Backpackers",
       "pricePerPerson" : 80,
       "rooms"    : 8,
       "stars"    : 4,
       "latlng": [
-      -33.890358, 
-      151.272888
+      -35.2505747,
+      149.1346127
       ],
       "address"  : {
         "building"  : "35",
@@ -395,8 +395,8 @@
       "rooms"    : 170,
       "stars"    : 4,
       "latlng": [
-      -33.871904, 
-      151.207660
+      -35.2993696,
+      149.1226453
       ],
       "address"  : {
         "building"  : "50",

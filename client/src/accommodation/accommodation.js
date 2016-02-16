@@ -1,9 +1,11 @@
-var Accommodation = function(name, pricePerPerson, rooms, stars, address) {
+var Accommodation = function(name, pricePerPerson, rooms, stars, latlng, address) {
   this.name = name;
   this.pricePerPerson = pricePerPerson;
   this.rooms = rooms;
   this.stars = stars;
+  this.latlng = latlng;
   this.address = address;
+  this.rendered = false;
   // this.bookings = [];
 }
 

@@ -25,7 +25,7 @@ AccomView.prototype = {
   accomDiv.appendChild(this.stars);
   accomDiv.appendChild(this.rooms);
   parent.appendChild(accomDiv);
-  
+  this.hotel.rendered = true;
   }
 };
 
