@@ -21,7 +21,8 @@ var getData = function(flights, hotels, callback){
           flightData.departure,
           flightData.arrival,
           flightData.departing,
-          flightData.arriving,
+          flightData.arriving,         
+          flightData.stopover,         
           flightData.price
         );
         console.log("flight", flight);

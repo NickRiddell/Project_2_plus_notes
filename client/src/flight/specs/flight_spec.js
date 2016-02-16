@@ -14,8 +14,12 @@ describe('flight', function() {
     assert.equal(flight.arriving, "2016-03-29T10:00:00Z");
   });
   it('should have a price', function() { 
-    var flight = new Flight(null, null, "Edinburgh", "Melbourne", "28-03-2016 T08:00:00", "29-03-2016 T10:00:00", 248);
+    var flight = new Flight(null, null, "Edinburgh", "Melbourne", "28-03-2016 T08:00:00", "29-03-2016 T10:00:00",null, 248);
     assert.equal(flight.price, 248);
+  });
+  it('should show flight duration', function() {
+    var flight = new Flight(null, null, "Edinburgh", "Melbourne", "29-03-2016 T08:00:00", "29-03-2016 T09:00:00", 248);
+    assert.equal(flight.duration(), 60*60*1000);
   })
 })
 

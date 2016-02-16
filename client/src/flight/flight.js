@@ -1,10 +1,13 @@
-var Flight = function(departureTZ, arrivalTZ, departure, arrival, departing, arriving, price){
+var moment = require('moment-timezone');
+
+var Flight = function(departureTZ, arrivalTZ, departure, arrival, departing, arriving, stopover, price){
   this.departureTZ = departureTZ;
   this.arrivalTZ = arrivalTZ;
   this.departure = departure;
   this.arrival = arrival;
   this.departing = this.convertDateString(departing);
   this.arriving = this.convertDateString(arriving);
+  this.stopover = stopover;
   this.price = price;
 }
 
@@ -20,6 +23,11 @@ Flight.prototype = {
     newDate += "Z";
     console.log("passed in date: ", newDate);
     return(newDate);
+  },
+  duration: function() {
+    var departDate = moment(this.departing);
+    var arriveDate = moment(this.arriving);
+    return(arriveDate.diff(departDate));
   }
 }
 
