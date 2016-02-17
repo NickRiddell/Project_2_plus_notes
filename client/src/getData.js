@@ -4,7 +4,7 @@ var populateDropdown = require('./dropdowns.js').populateDropdown;
 
 var getData = function(flights, hotels, callback){
 
-  var url = 'https://raw.githubusercontent.com/MichaelMacLeod/project_2/feature/map/updated_data.json';
+  var url = 'https://raw.githubusercontent.com/MichaelMacLeod/project_2/develop/updated_data.json';
   var request = new XMLHttpRequest();
   request.open('GET', url);
 
