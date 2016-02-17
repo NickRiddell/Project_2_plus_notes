@@ -1,5 +1,6 @@
 var AccomView = require('./accommodation/accomView.js');
 var FlightView = require('./flight/flightView.js');
+var PackageView = require('./package/packageView.js');
 var sortAccommodation = require('./accommodation/sortAccommodation.js');
 var sortFlights = require('./flight/sortFlights.js');
 var displayMap = require('./maps/displayMap.js');
@@ -7,7 +8,8 @@ var flights = undefined;
 var hotels = undefined; 
 
 var userChoices = {
-  outgoingFlight: undefined
+  outgoingFlight: undefined,
+  returnFlight: undefined
 }
 
 var populateFlightsHotelsArray = function(flightsArray, hotelsArray){
@@ -41,24 +43,33 @@ var displayFlights = function() {
     var flight = filteredArray[i];
     var flightView = new FlightView(flight);
     flightView.render(div);
-    flightView.button.onclick = function(){
-      userChoices.outgoingFlight = flight;
-      // displayHotels(flight);
-      var returnFlightDiv = document.querySelector("#returnFlightPicker");
-      returnFlightDiv.style.display = "block";
-      var departure_dropdown = document.getElementById('return-departure-select');
-      var arrival_dropdown = document.getElementById('return-arrival-select');
-      var goButton = document.querySelector('#return-go')
-      goButton.type = 'button';
-      goButton.onclick = function(event){
-        event.preventDefault();
-        if(departure_dropdown.selectedIndex != "0" && arrival_dropdown.selectedIndex != "0" && document.querySelector("#return-date-input").value !=""){
-          console.log(document.querySelector('#return-date-input').value);
-          // displayFlights(displayHotels);
-          displayReturnFlights();
+
+
+    var createDisplayFunction = function(flight){
+      var display = function(){
+        
+        userChoices.outgoingFlight = flight;
+        // displayHotels(flight);
+        var returnFlightDiv = document.querySelector("#returnFlightPicker");
+        returnFlightDiv.style.display = "block";
+        var departure_dropdown = document.getElementById('return-departure-select');
+        var arrival_dropdown = document.getElementById('return-arrival-select');
+        var goButton = document.querySelector('#return-go')
+        goButton.type = 'button';
+        goButton.onclick = function(event){
+          event.preventDefault();
+          if(departure_dropdown.selectedIndex != "0" && arrival_dropdown.selectedIndex != "0" && document.querySelector("#return-date-input").value !=""){
+            console.log(document.querySelector('#return-date-input').value);
+            // displayFlights(displayHotels);
+            displayReturnFlights();
+          }
         }
+
       }
+      return display;
     }
+
+    flightView.button.onclick = createDisplayFunction(flight);
   }
   displayFlightSortButtons();
 }
@@ -86,9 +97,18 @@ var displayReturnFlights = function() {
     var flight = filteredArray[i];
     var flightView = new FlightView(flight);
     flightView.render(div);
-    flightView.button.onclick = function(){
-      displayHotels(flight);
+
+
+    var createDisplayFunction = function(flight){
+      var display = function(){
+        userChoices.returnFlight = flight;
+        displayHotels(flight);
+      }
+      return display;
     }
+
+    flightView.button.onclick = createDisplayFunction(flight);
+
   }
   displayReturnFlightSortButtons();
 }
@@ -106,13 +126,39 @@ var displayHotels = function() {
   console.log(city);
   console.log(arrivalSelect);
   
+  console.log("HOTELS: ", hotels);
   for (var i = 0; i < hotels.length; i++) {
     var hotel = hotels[i];
+    console.log("Hotel: " + hotel.name + i);
     hotel.rendered = false;
+    console.log("Hotel: " + hotel.name + i);
     if (hotel.address.city == city && hotel.pricePerPerson >= minAccomPrice.value && hotel.pricePerPerson <= maxAccomPrice.value ) {
+      console.log("Hotel: " + hotel.name + i);
       var view = new AccomView(hotel);
+      console.log("Hotel: " + hotel.name + i);
       view.render(div);
+      console.log("Hotel: " + hotel.name + i);
+      // console.log("THE CURRENT HOTEL", hotel);
+      console.log("Hotel: " + hotel.name + i);
+
+
+      if(hotel.rendered){
+        // var hotel = hotel;
+
+        var createDisplayFunction = function(hotel){
+          var display = function(){
+            console.log("Hotel: " + hotel.name);
+            userChoices.hotel = hotel;
+            displayPackage(userChoices.outgoingFlight, userChoices.returnFlight, hotel);
+          }
+          return display;
+        }
+
+        view.button.onclick = createDisplayFunction(hotel);
+        
+      }
     }
+    console.log("****NEW HOTEL****")
   }
   var goButton = document.querySelector('#accom-go')
   goButton.type = 'button';
@@ -121,6 +167,14 @@ var displayHotels = function() {
     displayHotels();
   }
   displayAccomSortButtons(userChoices.outgoingFlight);
+}
+
+var displayPackage = function(outgoingFlight, returnFlight, hotel) {
+  var div = document.querySelector('#packageDetails');
+  div.innerHTML = "";
+  var view = new PackageView(outgoingFlight, returnFlight, hotel);
+  view.render(div);
+
 }
 
 var displayFlightSortButtons = function() {
