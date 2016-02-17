@@ -25,13 +25,14 @@ var sortFlights = function(flights, sortBy) {
   }
 
   // filter for min and max requested flight prices
-  var filteredFlights = flights.filter(byMinAndMaxPrice);
-  return filteredFlights;
+  // var filteredFlights = flights.filter(byMinAndMaxPrice);
+  // return filteredFlights;
+  return flights;
 }
 
-var byMinAndMaxPrice = function(obj) {
-  return (obj.price >= minFlightPrice) && (obj.price <= maxFlightPrice);
-}
+// var byMinAndMaxPrice = function(obj) {
+//   return (obj.price >= minFlightPrice) && (obj.price <= maxFlightPrice);
+// }
 
 module.exports = sortFlights;
 

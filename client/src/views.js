@@ -24,8 +24,10 @@ var displayFlights = function(displayHotels) {
     var arrivalSelect = document.querySelector("#arrival-select");
     var departureSelect = document.querySelector("#departure-select");
     var dateSelect = document.querySelector("#date-input")
+    var minFlightPrice = document.querySelector('#min-flight-price-select');
+    var maxFlightPrice = document.querySelector('#max-flight-price-select');
     console.log(dateSelect.value);
-    if (flight.departure == departureSelect.value && flight.arrival == arrivalSelect.value && new Date(flight.departing).toDateString() === new Date(dateSelect.value).toDateString() ) {
+    if (flight.departure == departureSelect.value && flight.arrival == arrivalSelect.value && new Date(flight.departing).toDateString() === new Date(dateSelect.value).toDateString() && flight.price >= minFlightPrice.value && flight.price <= maxFlightPrice.value) {
       return true
     }else{
       return false
