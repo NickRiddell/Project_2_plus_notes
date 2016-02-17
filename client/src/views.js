@@ -95,6 +95,8 @@ var displayReturnFlights = function() {
 
 var displayHotels = function() {
   console.log("displaying hotels");
+  var accomPicker = document.querySelector('#accomPicker');
+  accomPicker.style.display = "block";
   var div = document.querySelector('#accomList');
   div.innerHTML = "";
   var arrivalSelect = document.querySelector("#arrival-select");
@@ -112,8 +114,13 @@ var displayHotels = function() {
       view.render(div);
     }
   }
+  var goButton = document.querySelector('#accom-go')
+  goButton.type = 'button';
+  goButton.onclick = function(event){
+    event.preventDefault();
+    displayHotels();
+  }
   displayAccomSortButtons(userChoices.outgoingFlight);
-  console.log(hotels);
 }
 
 var displayFlightSortButtons = function() {
