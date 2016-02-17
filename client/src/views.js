@@ -61,10 +61,25 @@ var displayHotels = function(flight) {
     if (hotel.address.city == city && hotel.pricePerPerson >= minAccomPrice.value && hotel.pricePerPerson <= maxAccomPrice.value ) {
       var view = new AccomView(hotel);
       view.render(div);
+      view.button.onclick = function(){
+        displayPackage(flight, hotel);
+      }
     }
   }
   displayAccomSortButtons(flight);
   console.log(hotels);
+}
+
+var displayPackage = function(flight, hotel) {
+  var passengerSelect = document.querySelector("#passengers-select");
+  var nightsSelect = document.querySelector("#nights-select");
+  var flightTotal = flight.price * passengerSelect.value;
+  var accomTotal = hotel.pricePerPerson * nightsSelect.value * passengerSelect.value;
+  console.log("Package before discount: ", flightTotal + accomTotal);
+  var discount = (flightTotal + accomTotal) * 15/100;
+  console.log("Package discount: ", discount);
+  var packageTotal = (flightTotal + accomTotal) - discount;
+  console.log("Package total: ", packageTotal);
 }
 
 var displayFlightSortButtons = function() {

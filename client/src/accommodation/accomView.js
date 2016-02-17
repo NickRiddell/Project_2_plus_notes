@@ -12,6 +12,10 @@ var AccomView = function(hotel){
 
   this.rooms = document.createElement('p');
   this.rooms.innerText = "Rooms: " + hotel.rooms;
+
+  this.button = document.createElement('button');
+  this.button.className = "btn btn-hg btn-primary";
+  this.button.innerText = "Choose Accommodation";
 };
 
 AccomView.prototype = {
@@ -24,6 +28,7 @@ AccomView.prototype = {
   accomDiv.appendChild(this.pricePerPerson);
   accomDiv.appendChild(this.stars);
   accomDiv.appendChild(this.rooms);
+  accomDiv.appendChild(this.button);
   parent.appendChild(accomDiv);
   this.hotel.rendered = true;
   }
