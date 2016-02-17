@@ -37,6 +37,9 @@ var populateFlightMinMaxDropdown = function(selectID, amount){
     var option = document.createElement("option");
     option.innerText = i;
     select.appendChild(option);
+
+    selectElement(0, 'min-flight-price-select');
+    selectElement(1000, 'max-flight-price-select');
   }
 }
 
@@ -47,7 +50,15 @@ var populateAccomMinMaxDropdown = function(selectID, amount){
     var option = document.createElement("option");
     option.innerText = i;
     select.appendChild(option);
+
+    selectElement(0, 'min-accom-price-select');
+    selectElement(200, 'max-accom-price-select');
   }
+}
+
+var selectElement = function(valueToSelect, selected) {    
+  var element = document.getElementById(selected);
+  element.value = valueToSelect;
 }
 
 module.exports = {
