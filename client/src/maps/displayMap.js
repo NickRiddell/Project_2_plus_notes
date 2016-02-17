@@ -21,7 +21,7 @@ var displayMap = function(flight, hotels) {
   mapDiv.id = 'map'
   console.log(flight);
   var center = {lat: flight.arrivalLatLng[0], lng:flight.arrivalLatLng[1]};
-  var zoomNumber = 15;
+  var zoomNumber = 12;
   container.appendChild(mapDiv);
 
   map = new Map(center, zoomNumber)
