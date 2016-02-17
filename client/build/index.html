@@ -17,7 +17,7 @@
       <h1 class="demo-headline">FLIGHTR.</h1>
       <h4 class="text-center"><em>Enlightened Travel Comparison</em></h4>
     </header>
-    <div class="jumbotron">
+    <div class="jumbotron" id="outgoingFlightPicker">
       <div class="container">
         <form>
           <div class="row">
@@ -69,6 +69,40 @@
 
       <div id='flightList'>
       </div>
+    </div>
+    <div class="jumbotron" id="returnFlightPicker" style="display: none;">
+      <div class="container">
+        <form>
+          <div class="row">
+            <div class="col-sm-4">
+              <select id="return-departure-select" name="return-departure-select" class="form-control select mbl">
+                <option selected="">select departure destination</option>
+              </select>
+            </div>
+
+            <div class="col-sm-4">
+              <select id="return-arrival-select" name="return-arrival-select" class="form-control select mbl">
+                <option selected="">select arrival destination</option>
+              </select>
+            </div>
+
+            <div class="col-sm-4">
+              <input id='return-date-input' name='return-date-input' type="date" data-date-inline-picker="true" class="form-control mbl select datepicker">
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <select id="return-passengers-select" name="return-passengers-select" class="form-control select mbl">
+                <option selected="">select number of passengers</option>
+              </select>
+            </div>
+
+          <button id='go' class="btn btn-hg btn-primary">Go</button>
+        </form>
+      </div>
+    </div>
+    <div class="container">
 
       <div id='accomSortButtons'>
       </div>

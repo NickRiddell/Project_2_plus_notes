@@ -36,7 +36,9 @@ var displayFlights = function(displayHotels) {
     var flightView = new FlightView(flight);
     flightView.render(div);
     flightView.button.onclick = function(){
-      displayHotels(flight);
+      // displayHotels(flight);
+      var returnFlightDiv = document.querySelector("#returnFlightPicker")
+      returnFlightDiv.style.display = "block";
     }
   }
   displayFlightSortButtons();
