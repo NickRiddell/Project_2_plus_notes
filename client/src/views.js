@@ -73,7 +73,10 @@ var displayReturnFlights = function() {
     var departureSelect = document.querySelector("#return-departure-select");
     var dateSelect = document.querySelector("#return-date-input")
     console.log(dateSelect.value);
-    if (flight.departure == departureSelect.value && flight.arrival == arrivalSelect.value && new Date(flight.departing).toDateString() === new Date(dateSelect.value).toDateString() ) {
+    var minFlightPrice = document.querySelector('#return-min-flight-price-select');
+    var maxFlightPrice = document.querySelector('#return-max-flight-price-select');
+    console.log(dateSelect.value);
+    if (flight.departure == departureSelect.value && flight.arrival == arrivalSelect.value && new Date(flight.departing).toDateString() === new Date(dateSelect.value).toDateString() && flight.price >= minFlightPrice.value && flight.price <= maxFlightPrice.value) {
       return true
     }else{
       return false
@@ -168,13 +171,13 @@ var displayAccomSortButtons = function(flight) {
   accomSortButtons.innerHTML = "";
 
   var priceSortButton = document.createElement('button');
-    priceSortButton.type = 'button';
-    priceSortButton.className = "btn btn-hg btn-primary";
-    priceSortButton.innerText = "Sort by price";
-    accomSortButtons.appendChild(priceSortButton);
-    priceSortButton.onclick = function() {
-      sortAccommodation(hotels, "price");
-      displayHotels(flight);
+  priceSortButton.type = 'button';
+  priceSortButton.className = "btn btn-hg btn-primary";
+  priceSortButton.innerText = "Sort by price";
+  accomSortButtons.appendChild(priceSortButton);
+  priceSortButton.onclick = function() {
+    sortAccommodation(hotels, "price");
+    displayHotels(flight);
   }
 
   var starsSortButton = document.createElement('button');
