@@ -1,5 +1,6 @@
 var AccomView = require('./accommodation/accomView.js');
 var FlightView = require('./flight/flightView.js');
+var PackageView = require('./package/packageView.js');
 var sortAccommodation = require('./accommodation/sortAccommodation.js');
 var sortFlights = require('./flight/sortFlights.js');
 var displayMap = require('./maps/displayMap.js');
@@ -71,15 +72,11 @@ var displayHotels = function(flight) {
 }
 
 var displayPackage = function(flight, hotel) {
-  var passengerSelect = document.querySelector("#passengers-select");
-  var nightsSelect = document.querySelector("#nights-select");
-  var flightTotal = flight.price * passengerSelect.value;
-  var accomTotal = hotel.pricePerPerson * nightsSelect.value * passengerSelect.value;
-  console.log("Package before discount: ", flightTotal + accomTotal);
-  var discount = (flightTotal + accomTotal) * 15/100;
-  console.log("Package discount: ", discount);
-  var packageTotal = (flightTotal + accomTotal) - discount;
-  console.log("Package total: ", packageTotal);
+  var div = document.querySelector('#packageDetails');
+  div.innerHTML = "";
+  var view = new PackageView(flight, hotel);
+  view.render(div);
+
 }
 
 var displayFlightSortButtons = function() {
