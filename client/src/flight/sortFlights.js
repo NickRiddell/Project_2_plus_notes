@@ -35,16 +35,16 @@ var byMinAndMaxPrice = function(obj) {
 
 module.exports = sortFlights;
 
-// var minFlightPrice = 17;
-// var maxFlightPrice = 60;
-// var flights=[];
-// flights[0]={name:"CCC", price:32, departing: "2016-03-28T08:00:00Z", arriving: "2016-03-29T10:00:00Z"};
-// flights[1]={name:"BBB", price:17, departing: "2016-03-28T12:00:00Z", arriving: "2016-03-29T13:00:00Z"};
-// flights[2]={name:"AAA", price:58, departing: "2016-03-28T10:00:00Z", arriving: "2016-03-29T11:00:00Z"};
-// flights[3]={name:"DDD", price:62, departing: "2016-03-28T04:00:00Z", arriving: "2016-03-29T06:00:00Z"};
+var minFlightPrice = 17;
+var maxFlightPrice = 60;
+var flights=[];
+flights[0]={name:"CCC", price:32, departing: "2016-03-28T08:00:00Z", arriving: "2016-03-29T10:00:00Z"};
+flights[1]={name:"BBB", price:17, departing: "2016-03-28T12:00:00Z", arriving: "2016-03-29T13:00:00Z"};
+flights[2]={name:"AAA", price:58, departing: "2016-03-28T10:00:00Z", arriving: "2016-03-29T11:00:00Z"};
+flights[3]={name:"DDD", price:62, departing: "2016-03-28T04:00:00Z", arriving: "2016-03-29T06:00:00Z"};
 
-// var sorted = sortFlights(flights, "price");
-// console.log("Sorted by price", sorted);
-// sorted = sortFlights(flights, "journey time");
-// console.log("Sorted by journey time",sorted);
+var sorted = sortFlights(flights, "price");
+console.log("Sorted by price", sorted);
+sorted = sortFlights(flights, "journey time");
+console.log("Sorted by journey time",sorted);
 
