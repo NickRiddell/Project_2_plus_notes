@@ -49,6 +49,8 @@ var displayHotels = function(flight) {
   var div = document.querySelector('#accomList');
   div.innerHTML = "";
   var arrivalSelect = document.querySelector("#arrival-select");
+  var minAccomPrice = document.querySelector('#min-accom-price-select');
+  var maxAccomPrice = document.querySelector('#max-accom-price-select');
   var city = arrivalSelect.value;
   console.log(city);
   console.log(arrivalSelect);
@@ -56,7 +58,7 @@ var displayHotels = function(flight) {
   for (var i = 0; i < hotels.length; i++) {
     var hotel = hotels[i];
     hotel.rendered = false;
-    if (hotel.address.city == city) {
+    if (hotel.address.city == city && hotel.pricePerPerson >= minAccomPrice.value && hotel.pricePerPerson <= maxAccomPrice.value ) {
       var view = new AccomView(hotel);
       view.render(div);
     }

@@ -30,7 +30,7 @@ var numberDropdown = function(selectID, amount){
   }
 }
 
-var populateMinMaxDropdown = function(selectID, amount){
+var populateFlightMinMaxDropdown = function(selectID, amount){
   console.log(selectID);
   var select = document.querySelector("#" + selectID + "-select");
   for (var i = 0; i <= amount; i+=100) {
@@ -40,9 +40,20 @@ var populateMinMaxDropdown = function(selectID, amount){
   }
 }
 
+var populateAccomMinMaxDropdown = function(selectID, amount){
+  console.log(selectID);
+  var select = document.querySelector("#" + selectID + "-select");
+  for (var i = 0; i <= amount; i+=10) {
+    var option = document.createElement("option");
+    option.innerText = i;
+    select.appendChild(option);
+  }
+}
+
 module.exports = {
   populateDropdown,
-  populateMinMaxDropdown
+  populateFlightMinMaxDropdown,
+  populateAccomMinMaxDropdown
 }
 
 

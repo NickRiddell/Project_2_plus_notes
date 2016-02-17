@@ -1,7 +1,8 @@
 var Flight = require('./flight/flight.js');
 var Accommodation = require('./accommodation/accommodation.js');
 var populateDropdown = require('./dropdowns.js').populateDropdown;
-var populateMinMaxDropdown = require('./dropdowns.js').populateMinMaxDropdown;
+var populateFlightMinMaxDropdown = require('./dropdowns.js').populateFlightMinMaxDropdown;
+var populateAccomMinMaxDropdown = require('./dropdowns.js').populateAccomMinMaxDropdown;
 
 var getData = function(flights, hotels, callback){
 
@@ -50,8 +51,10 @@ var getData = function(flights, hotels, callback){
       populateDropdown("passengers", null, 21);
       populateDropdown("nights", null, 21);
       populateDropdown("rooms", null, 21);
-      populateMinMaxDropdown("min-flight-price", 1000);
-      populateMinMaxDropdown("max-flight-price", 1000);
+      populateFlightMinMaxDropdown("min-flight-price", 1000);
+      populateFlightMinMaxDropdown("max-flight-price", 1000);
+      populateAccomMinMaxDropdown("min-accom-price", 200);
+      populateAccomMinMaxDropdown("max-accom-price", 200);
 
       callback();
 
