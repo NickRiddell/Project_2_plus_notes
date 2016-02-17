@@ -60,9 +60,8 @@ var getData = function(flights, hotels, callback){
       populateDropdown("", "nights", null, 21);
       populateDropdown("", "rooms", null, 21);
 
-      populateDropdown("return-", "departure", flights);
-      populateDropdown("return-", "arrival", flights);
-      populateDropdown("return-", "passengers", null, 21);
+      // populateDropdown("return-", "departure", flights);
+      // populateDropdown("return-", "arrival", flights);
 
       callback();
 

@@ -1,12 +1,12 @@
-var populateDropdown = function(returnID, selectID, flights, amount){
+var populateDropdown = function(returnID, selectID, flights, amount, userChoices){
   if(flights){
-    flightDropdown(returnID, selectID, flights);
+    flightDropdown(returnID, selectID, flights, userChoices);
   }else{
     numberDropdown(returnID, selectID, amount);
   }
 }
 
-var flightDropdown = function(returnID, selectID, flights){
+var flightDropdown = function(returnID, selectID, flights, userChoices){
   var select = document.querySelector("#" + returnID + selectID + "-select");
   var names = [];
   for (var i = 0; i < flights.length; i++) {
@@ -18,6 +18,25 @@ var flightDropdown = function(returnID, selectID, flights){
       names.push(flight[selectID]);
     }
   }
+
+  if(userChoices){
+    console.log("SELECTID: ", selectID);
+    if(selectID == "departure"){
+      select.selectedIndex = names.indexOf(userChoices.outgoingFlight.arrival) + 1;
+    }else{
+      console.log("set arrival to flight.departure");
+      console.log("NAMES: ", names);
+      console.log("outgoing flight", userChoices.outgoingFlight)
+      select.selectedIndex = names.indexOf(userChoices.outgoingFlight.departure) + 1;
+    }
+
+    setDefaultReturnSelectElement(select, userChoices)
+  }
+
+}
+
+var setDefaultReturnSelectElement = function(select, userChoices){
+
 }
 
 var numberDropdown = function(returnID, selectID, amount){
@@ -37,9 +56,7 @@ var populateFlightMinMaxDropdown = function(selectID, amount){
     var option = document.createElement("option");
     option.innerText = i;
     select.appendChild(option);
-
-    selectElement(0, 'min-flight-price-select');
-    selectElement(1000, 'max-flight-price-select');
+    selectElement(selectID + "-select");
   }
 }
 
@@ -51,14 +68,21 @@ var populateAccomMinMaxDropdown = function(selectID, amount){
     option.innerText = i;
     select.appendChild(option);
 
-    selectElement(0, 'min-accom-price-select');
-    selectElement(200, 'max-accom-price-select');
+    selectElement(selectID + "-select");
   }
 }
 
-var selectElement = function(valueToSelect, selected) {    
+var selectElement = function(selected) {    
   var element = document.getElementById(selected);
-  element.value = valueToSelect;
+  console.log("THE ELEMENT: ", element);
+  if(selected == 'min-accom-price-select' || selected == 'min-flight-price-select' || selected == 'return-min-flight-price-select'){
+    element.selectedIndex = 1;
+    console.log("234");
+  }else{
+    element.selectedIndex = element.children.length - 1
+    console.log("999");
+  }
+
 }
 
 module.exports = {

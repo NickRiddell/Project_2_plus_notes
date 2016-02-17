@@ -1,6 +1,7 @@
 var AccomView = require('./accommodation/accomView.js');
 var FlightView = require('./flight/flightView.js');
 var PackageView = require('./package/packageView.js');
+var populateDropdown = require('./dropdowns.js').populateDropdown;
 var sortAccommodation = require('./accommodation/sortAccommodation.js');
 var sortFlights = require('./flight/sortFlights.js');
 var displayMap = require('./maps/displayMap.js');
@@ -13,10 +14,12 @@ var userChoices = {
 }
 
 var populateFlightsHotelsArray = function(flightsArray, hotelsArray){
+
   console.log("Start FLIGHTS HOTELS", flights, hotels);
   flights = flightsArray;
   hotels = hotelsArray;
   console.log("END FLIGHTS HOTELS", flights, hotels);
+
 }
 
 var displayFlights = function() {
@@ -49,6 +52,9 @@ var displayFlights = function() {
       var display = function(){
         
         userChoices.outgoingFlight = flight;
+        console.log("(user choices) return flights: ", userChoices)
+        populateDropdown("return-", "departure", flights, null, userChoices);
+        populateDropdown("return-", "arrival", flights, null, userChoices);
         // displayHotels(flight);
         var returnFlightDiv = document.querySelector("#returnFlightPicker");
         returnFlightDiv.style.display = "block";
@@ -102,7 +108,19 @@ var displayReturnFlights = function() {
     var createDisplayFunction = function(flight){
       var display = function(){
         userChoices.returnFlight = flight;
-        displayHotels(flight);
+        var accomPicker = document.querySelector('#accomPicker');
+        accomPicker.style.display = "block";
+        var goButton = document.querySelector('#accom-go')
+        goButton.type = 'button';
+
+        goButton.onclick = function(event){
+          event.preventDefault();
+          var rooms_dropdown = document.querySelector('#rooms-select');
+          var nights_dropdown = document.querySelector('#nights-select');
+          if(rooms_dropdown.selectedIndex != "0" && nights_dropdown.selectedIndex != "0"){
+            displayHotels();
+          }
+        }
       }
       return display;
     }
@@ -115,8 +133,6 @@ var displayReturnFlights = function() {
 
 var displayHotels = function() {
   console.log("displaying hotels");
-  var accomPicker = document.querySelector('#accomPicker');
-  accomPicker.style.display = "block";
   var div = document.querySelector('#accomList');
   div.innerHTML = "";
   var arrivalSelect = document.querySelector("#arrival-select");
@@ -160,12 +176,6 @@ var displayHotels = function() {
     }
     console.log("****NEW HOTEL****")
   }
-  var goButton = document.querySelector('#accom-go')
-  goButton.type = 'button';
-  goButton.onclick = function(event){
-    event.preventDefault();
-    displayHotels();
-  }
   displayAccomSortButtons(userChoices.outgoingFlight);
 }
 
@@ -183,7 +193,7 @@ var displayFlightSortButtons = function() {
 
   var priceSortButton = document.createElement('button');
   priceSortButton.type = 'button';
-  priceSortButton.className = "btn btn-hg btn-primary";
+  priceSortButton.className = "btn btn-hg btn-primary sort";
   priceSortButton.innerText = "Sort by price";
   flightSortButton.appendChild(priceSortButton);
   priceSortButton.onclick = function() {
@@ -193,7 +203,7 @@ var displayFlightSortButtons = function() {
   }
   var journeySortButton = document.createElement('button');
   journeySortButton.type = 'button';
-  journeySortButton.className = "btn btn-hg btn-primary";
+  journeySortButton.className = "btn btn-hg btn-primary sort";
   journeySortButton.innerText = "Sort by journey length";
   flightSortButton.appendChild(journeySortButton);
   journeySortButton.onclick = function() {
@@ -208,7 +218,7 @@ var displayReturnFlightSortButtons = function() {
 
   var priceSortButton = document.createElement('button');
   priceSortButton.type = 'button';
-  priceSortButton.className = "btn btn-hg btn-primary";
+  priceSortButton.className = "btn btn-hg btn-primary sort";
   priceSortButton.innerText = "Sort by price";
   flightSortButton.appendChild(priceSortButton);
   priceSortButton.onclick = function() {
@@ -218,7 +228,7 @@ var displayReturnFlightSortButtons = function() {
   }
   var journeySortButton = document.createElement('button');
   journeySortButton.type = 'button';
-  journeySortButton.className = "btn btn-hg btn-primary";
+  journeySortButton.className = "btn btn-hg btn-primary sort";
   journeySortButton.innerText = "Sort by journey length";
   flightSortButton.appendChild(journeySortButton);
   journeySortButton.onclick = function() {
@@ -233,7 +243,7 @@ var displayAccomSortButtons = function(flight) {
 
   var priceSortButton = document.createElement('button');
   priceSortButton.type = 'button';
-  priceSortButton.className = "btn btn-hg btn-primary";
+  priceSortButton.className = "btn btn-hg btn-primary sort";
   priceSortButton.innerText = "Sort by price";
   accomSortButtons.appendChild(priceSortButton);
   priceSortButton.onclick = function() {
@@ -243,7 +253,7 @@ var displayAccomSortButtons = function(flight) {
 
   var starsSortButton = document.createElement('button');
   starsSortButton.type = 'button';
-  starsSortButton.className = "btn btn-hg btn-primary";
+  starsSortButton.className = "btn btn-hg btn-primary sort";
   starsSortButton.innerText = "Sort by stars";
   accomSortButtons.appendChild(starsSortButton);
   starsSortButton.onclick = function() {

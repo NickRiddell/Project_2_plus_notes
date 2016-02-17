@@ -19,54 +19,46 @@
   </header>
   <div class="jumbotron" id="outgoingFlightPicker">
     <div class="container">
-    <h2>Outgoing flight</h2>
+      <h2>Outgoing flight</h2>
       <form>
         <div class="row">
           <div class="col-sm-4">
+            <small><em>departure: </em></small>
             <select id="departure-select" name="departure-select" class="form-control select mbl">
-              <option selected="">select departure destination</option>
+              <option>select departure destination</option>
             </select>
           </div>
 
           <div class="col-sm-4">
+            <small><em>arrival: </em></small>
             <select id="arrival-select" name="arrival-select" class="form-control select mbl">
-              <option selected="">select arrival destination</option>
+              <option>select arrival destination</option>
             </select>
           </div>
 
           <div class="col-sm-4">
+            <small><em>date: </em></small>
             <input id='date-input' name='date-input' type="date" data-date-inline-picker="true" class="form-control mbl select datepicker">
           </div>
         </div>
 
         <div class="row">
           <div class="col-sm-4">
+            <small><em>passengers: </em></small>
             <select id="passengers-select" name="passengers-select" class="form-control select mbl">
               <option selected="">select number of passengers</option>
             </select>
           </div>
 
-          <div class="col-sm-4">
-            <select id="nights-select" name="nights-select" class="form-control select mbl">
-              <option selected="">select number of nights</option>
-            </select>
-          </div>
-
-          <div class="col-sm-4">
-            <select id="rooms-select" name="rooms-select" class="form-control select mbl">
-              <option selected="">select number of rooms</option>
-            </select>
-          </div> 
-        </div>
-
-        <div class="row">
-          <div class="col-sm-1">
+          <div class="col-sm-4 filter-select">
+            <small><em>min price: </em></small>
             <select id="min-flight-price-select" name="min-flight-price-select" class="form-control select mbl">
               <option selected="">select min price for flight</option>
             </select>
           </div> 
 
-          <div class="col-sm-1">
+          <div class="col-sm-4 filter-select">
+            <small><em>max price: </em></small>
             <select id="max-flight-price-select" name="max-flight-price-select" class="form-control select mbl">
               <option selected="">select max price for flight</option>
             </select>
@@ -88,48 +80,48 @@
 
   <div class="jumbotron" id="returnFlightPicker" style="display: none;">
     <div class="container">
-    <h2>Return flight</h2>
+      <h2>Return flight</h2>
       <form>
         <div class="row">
           <div class="col-sm-4">
+            <small><em>departure: </em></small>
             <select id="return-departure-select" name="return-departure-select" class="form-control select mbl">
               <option selected="">select departure destination</option>
             </select>
           </div>
 
           <div class="col-sm-4">
+            <small><em>arrival: </em></small>
             <select id="return-arrival-select" name="return-arrival-select" class="form-control select mbl">
               <option selected="">select arrival destination</option>
             </select>
           </div>
 
           <div class="col-sm-4">
+          <small><em>date: </em></small>
             <input id='return-date-input' name='return-date-input' type="date" data-date-inline-picker="true" class="form-control mbl select datepicker">
           </div>
 
         </div>
-        <div class="row">
-          <div class="col-sm-4">
-            <select id="return-passengers-select" name="return-passengers-select" class="form-control select mbl">
-              <option selected="">select number of passengers</option>
-            </select>
-          </div>
-        </div>
 
         <div class="row">
-          <div class="col-sm-2">
+          <div class="col-sm-6">
+            <small><em>min. price: </em></small>
             <select id="return-min-flight-price-select" name="min-flight-price-select" class="form-control select mbl">
               <option selected>select min price</option>
             </select>
           </div> 
 
-          <div class="col-sm-2">
+          <div class="col-sm-6">
+            <small><em>max. price: </em></small>
             <select id="return-max-flight-price-select" name="max-flight-price-select" class="form-control select mbl">
               <option selected>select max price</option>
             </select>
           </div>
-
+        </div>
+        <div class="row">
           <button id='return-go' class="btn btn-hg btn-primary">Go</button>
+        </div>
         </form>
       </div>
     </div>
@@ -143,15 +135,32 @@
   </div>
   <div class="jumbotron" id="accomPicker" style="display: none;">
     <div class="container">
-    <h2>Accommodation</h2>
+      <h2>Accommodation</h2>
       <form>
         <div class="row">
-          <div class="col-sm-1">
+          <div class="col-sm-6">
+            <small><em>nights: </em></small>
+            <select id="nights-select" name="nights-select" class="form-control select mbl">
+              <option selected="">select number of nights</option>
+            </select>
+          </div>
+          <div class="col-sm-6">
+            <small><em>rooms: </em></small>
+            <select id="rooms-select" name="rooms-select" class="form-control select mbl">
+              <option selected="">select number of rooms</option>
+            </select>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <small><em>min. price: </em></small>
             <select id="min-accom-price-select" name="min-accom-price-select" class="form-control select mbl">
             </select>
           </div>
 
-          <div class="col-sm-1">
+          <div class="col-sm-6">
+            <small><em>max. price: </em></small>
             <select id="max-accom-price-select" name="max-accom-price-select" class="form-control select mbl">
               <option selected="">select max price for accommodation</option>
             </select>
@@ -167,7 +176,7 @@
     <div id='accomSortButtons'>
     </div>
 
-    <div id='mapContainer'>
+    <div id='mapContainer' class="center-block">
     </div>
 
     <div id='accomList'>
