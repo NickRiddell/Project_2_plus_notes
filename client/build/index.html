@@ -1,55 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Flightr.</title>
-    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDvcIZ-c0o8wJNnLY5nC5lnyIe7HNS5hac&libraries=geometry'></script>
-    <script src='bundle.js'></script>
-    <!-- Loading Bootstrap -->
-    <link href="flat-ui/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <!-- Loading Flat UI -->
-    <link href="flat-ui/css/flat-ui.css" rel="stylesheet">
-    <link href="flat-ui/css/docs.css" rel="stylesheet">
-    <link href="/css/main.css" rel="stylesheet">
-  </head>
-  <body>
-    <header>
-      <img src="/images/logo.png" id="logo" class="center-block">
-      <h1 class="demo-headline">FLIGHTR.</h1>
-      <h4 class="text-center"><em>Enlightened Travel Comparison</em></h4>
-    </header>
-    <div class="jumbotron">
-      <div class="container">
-        <form>
-          <div class="row">
-            <div class="col-sm-4">
-              <select id="departure-select" name="departure-select" class="form-control select mbl">
-                <option selected="">select departure destination</option>
-              </select>
-            </div>
-
-            <div class="col-sm-4">
-              <select id="arrival-select" name="arrival-select" class="form-control select mbl">
-                <option selected="">select arrival destination</option>
-              </select>
-            </div>
-
-            <div class="col-sm-4">
-              <input id='date-input' name='date-input' type="date" data-date-inline-picker="true" class="form-control mbl select datepicker">
-            </div>
-
+<head>
+  <title>Flightr.</title>
+  <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDvcIZ-c0o8wJNnLY5nC5lnyIe7HNS5hac&libraries=geometry'></script>
+  <script src='bundle.js'></script>
+  <!-- Loading Bootstrap -->
+  <link href="flat-ui/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <!-- Loading Flat UI -->
+  <link href="flat-ui/css/flat-ui.css" rel="stylesheet">
+  <link href="flat-ui/css/docs.css" rel="stylesheet">
+  <link href="/css/main.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <img src="/images/logo.png" id="logo" class="center-block">
+    <h1 class="demo-headline">FLIGHTR.</h1>
+    <h4 class="text-center"><em>Enlightened Travel Comparison</em></h4>
+  </header>
+  <div class="jumbotron" id="outgoingFlightPicker">
+    <div class="container">
+      <form>
+        <div class="row">
+          <div class="col-sm-4">
+            <select id="departure-select" name="departure-select" class="form-control select mbl">
+              <option selected="">select departure destination</option>
+            </select>
           </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <select id="passengers-select" name="passengers-select" class="form-control select mbl">
-                <option selected="">select number of passengers</option>
-              </select>
-            </div>
 
-            <div class="col-sm-4">
-              <select id="nights-select" name="nights-select" class="form-control select mbl">
-                <option selected="">select number of nights</option>
-              </select>
-            </div>
+          <div class="col-sm-4">
+            <select id="arrival-select" name="arrival-select" class="form-control select mbl">
+              <option selected="">select arrival destination</option>
+            </select>
+          </div>
+
+          <div class="col-sm-4">
+            <input id='date-input' name='date-input' type="date" data-date-inline-picker="true" class="form-control mbl select datepicker">
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <select id="passengers-select" name="passengers-select" class="form-control select mbl">
+              <option selected="">select number of passengers</option>
+            </select>
+          </div>
+
+          <div class="col-sm-4">
+            <select id="nights-select" name="nights-select" class="form-control select mbl">
+              <option selected="">select number of nights</option>
+            </select>
+          </div>
 
             <div class="col-sm-4">
               <select id="rooms-select" name="rooms-select" class="form-control select mbl">
@@ -84,28 +84,68 @@
             </div> 
           </div>
 
-          <button id='go' class="btn btn-hg btn-primary">Go</button>
-        </form>
-      </div>
+        <button id='go' class="btn btn-hg btn-primary">Go</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id='flightSortButtons'>
     </div>
 
+    <div id='flightList'>
+    </div>
+  </div>
+  <div class="jumbotron" id="returnFlightPicker" style="display: none;">
     <div class="container">
-      <div id='flightSortButtons'>
-      </div>
+      <form>
+        <div class="row">
+          <div class="col-sm-4">
+            <select id="return-departure-select" name="return-departure-select" class="form-control select mbl">
+              <option selected="">select departure destination</option>
+            </select>
+          </div>
 
-      <div id='flightList'>
-      </div>
+          <div class="col-sm-4">
+            <select id="return-arrival-select" name="return-arrival-select" class="form-control select mbl">
+              <option selected="">select arrival destination</option>
+            </select>
+          </div>
 
-      <div id='accomSortButtons'>
-      </div>
+          <div class="col-sm-4">
+            <input id='return-date-input' name='return-date-input' type="date" data-date-inline-picker="true" class="form-control mbl select datepicker">
+          </div>
 
-      <div id='mapContainer'>
-      </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <select id="return-passengers-select" name="return-passengers-select" class="form-control select mbl">
+              <option selected="">select number of passengers</option>
+            </select>
+          </div>
+        </div>
 
-      <div id='accomList'>
-      </div>
-
+        <button id='return-go' class="btn btn-hg btn-primary">Go</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div id='returnFlightSortButtons'>
     </div>
 
-  </body>
+    <div id='returnFlightList'>
+    </div>
+
+    <div id='accomSortButtons'>
+    </div>
+
+    <div id='mapContainer'>
+    </div>
+
+    <div id='accomList'>
+    </div>
+
+  </div>
+
+</body>
 </html>

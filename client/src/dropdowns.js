@@ -1,13 +1,13 @@
-var populateDropdown = function(selectID, flights, amount){
+var populateDropdown = function(returnID, selectID, flights, amount){
   if(flights){
-    flightDropdown(selectID, flights);
+    flightDropdown(returnID, selectID, flights);
   }else{
-    numberDropdown(selectID, amount);
+    numberDropdown(returnID, selectID, amount);
   }
 }
 
-var flightDropdown = function(selectID, flights){
-  var select = document.querySelector("#" + selectID + "-select");
+var flightDropdown = function(returnID, selectID, flights){
+  var select = document.querySelector("#" + returnID + selectID + "-select");
   var names = [];
   for (var i = 0; i < flights.length; i++) {
     var flight = flights[i];
@@ -20,9 +20,9 @@ var flightDropdown = function(selectID, flights){
   }
 }
 
-var numberDropdown = function(selectID, amount){
+var numberDropdown = function(returnID, selectID, amount){
   console.log(selectID);
-  var select = document.querySelector("#" + selectID + "-select");
+  var select = document.querySelector("#" + returnID + selectID + "-select");
   for (var i = 0; i < amount; i++) {
     var option = document.createElement("option");
     option.innerText = i + 1;

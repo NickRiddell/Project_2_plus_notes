@@ -46,15 +46,20 @@ var getData = function(flights, hotels, callback){
       }
 
 
-      populateDropdown("departure", flights);
-      populateDropdown("arrival", flights);
-      populateDropdown("passengers", null, 21);
-      populateDropdown("nights", null, 21);
-      populateDropdown("rooms", null, 21);
       populateFlightMinMaxDropdown("min-flight-price", 1000);
       populateFlightMinMaxDropdown("max-flight-price", 1000);
       populateAccomMinMaxDropdown("min-accom-price", 200);
       populateAccomMinMaxDropdown("max-accom-price", 200);
+
+      populateDropdown("", "departure", flights);
+      populateDropdown("", "arrival", flights);
+      populateDropdown("", "passengers", null, 21);
+      populateDropdown("", "nights", null, 21);
+      populateDropdown("", "rooms", null, 21);
+
+      populateDropdown("return-", "departure", flights);
+      populateDropdown("return-", "arrival", flights);
+      populateDropdown("return-", "passengers", null, 21);
 
       callback();
 

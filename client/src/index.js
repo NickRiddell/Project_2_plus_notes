@@ -16,8 +16,11 @@ window.onload = function(){
     goButton.type = 'button';
     goButton.onclick = function(event){
       event.preventDefault();
-      views.populateFlightsHotelsArray(flights, hotels);
-      displayFlights(displayHotels);
+      if(departure_dropdown.selectedIndex != "0" && arrival_dropdown.selectedIndex != "0" && document.querySelector("#date-input").value !=""){
+        console.log(document.querySelector('#date-input').value);
+        views.populateFlightsHotelsArray(flights, hotels);
+        displayFlights(displayHotels);
+      }
     }
   });
 }
