@@ -1,0 +1,77 @@
+body {
+  
+}
+
+header {
+  background-color: #1abc9c;
+}
+
+#logo {
+  padding-top: 10px;
+  width: 80px;
+  display: block;
+}
+
+h4 {
+  margin: 0px;
+  padding-bottom: 20px;
+}
+
+header h1.demo-headline, header h4 {
+  color: white;
+}
+
+header h1.demo-headline {
+  padding: 0px;
+}
+
+.demo-headline {
+  margin: 0px;
+}
+
+.datepicker {
+  padding: 4px;
+  direction: ltr;
+}
+
+.datepicker-inline {
+  width: 220px;
+}
+
+.flight {
+  padding-bottom: 20px;
+  border-bottom: solid #f5f5f5 2px;
+}
+
+.sort {
+  margin-right: 10px;
+}
+
+@media (max-width: 767px) {
+  header h4 {
+    font-size: 1em;    
+  }
+
+  header h1.demo-headline {
+    text-align: center;
+  }
+}
+
+@media (min-width: 767px) {
+  .jumbotron {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+#map {
+  height: 500px;
+  width: 500px;
+  background-color: white;
+}
+
+#mapContainer {
+  margin: 10px;
+}
+
+
